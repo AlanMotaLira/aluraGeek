@@ -25,7 +25,19 @@ export default {
 </script>
 <style scoped>
 .pesquisa {
-  display: none;
+  display: flex;
+  align-items: center;
+  background-color: var(--pagina-claro);
+  border: none;
+  border-radius: 20px;
+  color: var(--texto-padrao);
+  justify-content: space-between;
+  font-size: 0.75rem;
+  font-weight: 400;
+  height: auto;
+  padding: 8px 16px;
+  vertical-align: middle;
+  width: 272px;
 }
 .pesquisa:focus-within {
   border: 2px solid var(--botao-padrao);
@@ -46,21 +58,9 @@ fieldset {
 
 @media screen and (min-width: 768px) {
   .pesquisa {
-    display: flex;
-    align-items: center;
-    background-color: var(--pagina-claro);
-    border: none;
-    border-radius: 20px;
-    color: var(--texto-padrao);
-    justify-content: space-evenly;
-    font-size: 0.75rem;
-    font-weight: 400;
-    height: 40px;
-    padding: 8px 16px;
-    vertical-align: middle;
     width: 272px;
   }
-  
+
   @media screen and (min-width: 1136px) {
     .pesquisa {
       width: 393px;

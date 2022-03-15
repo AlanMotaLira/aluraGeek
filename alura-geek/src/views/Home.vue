@@ -1,16 +1,21 @@
 <template>
   <div>
     <Cabecalho-principal />
+    <main>
+      <Home-destaque />
+    </main>
   </div>
 </template>
 
 <script>
-import cabecalhoPrincipal from '../components/cabecalhoPrincipal.vue';
+import cabecalhoPrincipal from "../components/cabecalhoPrincipal.vue";
+import homeDestaque from "../components/homeDestaque.vue";
 
 export default {
-  name: 'HomePage',
+  name: "HomePage",
   components: {
-    'Cabecalho-principal': cabecalhoPrincipal,
+    "Cabecalho-principal": cabecalhoPrincipal,
+    "Home-destaque":homeDestaque,
   },
 };
 </script>

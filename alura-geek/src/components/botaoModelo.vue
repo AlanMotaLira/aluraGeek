@@ -27,7 +27,7 @@ export default {
   padding: 0.75rem 1rem;
   text-align: center;
   transition: 500ms all;
-  width: 119px;
+  width: 133px;
 }
 .modelo-1 {
   background-color: var(--botao-padrao);
@@ -44,11 +44,20 @@ export default {
   background-color: var(--botao-padrao-20);
 }
 
+@media screen and (min-width: 768px) {
+  .botao {
+    font-size: 0.875rem;
+    font-weight: 600;
+    width: 166px;
+  }
+}
+
 @media screen and (min-width: 1136px) {
   .botao {
     font-size: 1rem;
     font-weight: 400;
     height: 51px;
+    width: 182px;
   }
 }
 </style>
