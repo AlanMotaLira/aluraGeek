@@ -2,7 +2,9 @@
   <div>
     <header class="cabecalho">
       <div class="container">
-        <Logo-alura-geek alt="logotipo da HZC" />
+        <h1 aria-label="aluraGeek">
+          <Logo-alura-geek alt="logotipo da HZC" />
+        </h1>
         <Input-pesquisa
           class="cabecalho__pesquisa-desktop"
           placeholder="O que deseja encontrar?"
@@ -19,11 +21,12 @@
       >
         <i class="fas fa-magnifying-glass" />
       </button>
+      <Input-pesquisa
+        v-if="filtro"
+        class="cabecalho__botao-pesquisa"
+        placeholder="O que deseja encontrar?"
+      />
     </header>
-    <Input-pesquisa
-      v-if="filtro"
-      placeholder="O que deseja encontrar?"
-    />
   </div>
 </template>
 <script>
@@ -47,11 +50,11 @@ export default {
 <style scoped>
 .cabecalho {
   display: flex;
+  flex-wrap:wrap;
   align-items: center;
   flex-direction: row;
   height: 72px;
   justify-content: space-around;
-  padding: 16px;
 }
 .cabecalho__botao-pesquisa {
   color: var(--texto-padrao);
@@ -67,8 +70,8 @@ export default {
 }
 
 @media screen and (min-width: 768px) {
-  .cabecalho {
-    padding: 16px 32px;
+  .cabecalho{
+    justify-content: space-between;
   }
   .cabecalho__botao-pesquisa {
     display: none;
@@ -81,8 +84,6 @@ export default {
 @media screen and (min-width: 1136px) {
   .cabecalho {
     height: 115px;
-    margin: 0px 100px;
-    padding: 0px;
   }
 }
 </style>

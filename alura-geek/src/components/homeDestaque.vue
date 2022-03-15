@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <section class="container">
     <h2
       class="destaque__titulo"
     >
@@ -12,7 +12,7 @@
       modelo="modelo-1"
       rotulo="Ver Consoles"
     />
-  </div>
+  </section>
 </template>
 <script>
 import botaoModelo from "./botaoModelo.vue";
@@ -25,15 +25,19 @@ export default {
 <style scoped>
 .container{
     display: flex;
-    color:var(--texto-claro);
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 41.15%, rgba(0, 0, 0, 0.8) 100%), url("../assets/img/mobile/Hero.jpg");
+    line-height: 1.6;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 41.15%, rgba(0, 0, 0, 0.8) 100%), url("../assets/img/banner.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    color:var(--texto-claro);
     flex-direction: column;
     justify-content: flex-end;
-    align-items: center;
-    height: 192px;;
+    height: 192px;
+    left: 0;
+    position: absolute;
+    padding: 16px;
+    width:100vw;
 }
 .destaque__titulo{
     font-size: 1.375rem;
@@ -46,8 +50,8 @@ export default {
 
 @media screen and (min-width: 768px) {
     .container{
-        background: linear-gradient(180deg, rgba(0, 0, 0, 0) 41.15%, rgba(0, 0, 0, 0.8) 100%), url("../assets/img/desktop/Hero.jpg");
         height: 352px;
+        padding: 16px 32px;
     }
     .destaque__titulo{
         font-size: 3.25rem;
@@ -60,8 +64,8 @@ export default {
 
 @media screen and (min-width: 1136px) {
     .container{
-        background-image: url("../assets/img/desktop/Hero.jpg");
         height: 352px;
+        padding: 32px 100px;
     }
 }
 </style>

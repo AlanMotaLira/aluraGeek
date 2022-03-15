@@ -8,7 +8,10 @@
         :placeholder="placeholder"
       >
       <label for="filtro">
-        <i class="fas fa-magnifying-glass" />
+        <i
+          class="fas fa-magnifying-glass"
+          aria-label="lupa de pesquisa"
+        />
       </label>
     </div>
   </fieldset>
@@ -46,6 +49,7 @@ export default {
   background: transparent;
   border: none;
   text-align: center;
+  width: 100%;
 }
 .pesquisa__input:focus {
   background: transparent;
@@ -54,6 +58,7 @@ export default {
 fieldset {
   border: none;
   margin: 0 2rem;
+  z-index:2;
 }
 
 @media screen and (min-width: 768px) {
