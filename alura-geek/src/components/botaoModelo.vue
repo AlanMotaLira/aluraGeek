@@ -43,6 +43,7 @@ export default {
 .modelo-2:hover {
   background-color: var(--botao-padrao-20);
 }
+
 @media screen and (min-width: 1136px) {
   .botao {
     font-size: 1rem;
