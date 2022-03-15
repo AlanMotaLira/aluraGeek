@@ -1,0 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;400;500;600;700;800&display=swap");
+
+:root {
+  --pagina-padrao: #fff;
+  /* --page-dark: */
+  --rodape-padrao: #eaf2fd;
+  /* --footer-darK: */
+  --texto-padrao: #464646;
+  --texto-destaque: #2a7ae4;
+  --texto-claro: #fff;
+  --botao-padrao: #2a7ae4;
+  --botao-padrao-80:#5595E9;
+  --botao-padrao-20:#D4E4FA;
+}
+*,
+:after,
+:before {
+  font-family: "Raleway";
+  box-sizing: border-box;
+}
