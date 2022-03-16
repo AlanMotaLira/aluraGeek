@@ -3,9 +3,7 @@
     <Cabecalho-principal />
     <main>
       <Home-destaque />
-      <div class="teste">
-        <Card-padrao />
-      </div>
+      <Card-padrao />
     </main>
   </div>
 </template>
@@ -24,11 +22,3 @@ export default {
   },
 };
 </script>
-<style scoped>
-.teste{
-  position: relative;
-  top:100px;
-  left:-16px;
-}
-
-</style>
