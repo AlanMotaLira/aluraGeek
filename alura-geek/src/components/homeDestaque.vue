@@ -1,5 +1,5 @@
 <template>
-  <section class="container">
+  <article class="container">
     <h2
       class="destaque__titulo"
     >
@@ -12,7 +12,7 @@
       modelo="modelo-1"
       rotulo="Ver Consoles"
     />
-  </section>
+  </article>
 </template>
 <script>
 import botaoModelo from "./botaoModelo.vue";
@@ -34,8 +34,8 @@ export default {
     flex-direction: column;
     justify-content: flex-end;
     height: 192px;
-    left: 0;
     position: absolute;
+    left: 0;
     padding: 16px;
     width:100vw;
 }
