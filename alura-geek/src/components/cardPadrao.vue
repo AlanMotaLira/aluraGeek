@@ -2,28 +2,44 @@
   <article class="card">
     <img
       class="card__imagem"
-      src="../assets/img/card/unsplash_6FDXGY9J6y4.jpg"
-      alt="#"
+      :src="filename"
+      :alt="nome"
     >
     <section class="card__item">
       <h3 class="card__item--titulo">
-        Produto XYZ
+        {{ nome }}
       </h3>
       <p class="card__item--preco">
-        R$ 60,00
+        `R$ {{ preco }}`
       </p>
       <a
         href="#"
         class="card__item--link"
-      >
-        Ver produto
-      </a>
+      > Ver produto </a>
     </section>
   </article>
 </template>
 <script>
 export default {
-  setup() {},
+  props: {
+    image: {
+      type: String,
+      required: true,
+    },
+    nome: {
+      type: String,
+      required: true,
+    },
+    preco: {
+      type: Number,
+      required: true,
+    },
+  },
+  data(){
+    return{
+     filename:`/assets/img/card/${this.image}.jpg`
+    }
+  }
 };
 </script>
 <style scoped>
@@ -33,7 +49,7 @@ export default {
   box-shadow: 0px 0px 22px -8px var(--texto-destaque);
   color: var(--texto-padrao);
   flex-direction: column;
-  height: 270px;
+  height: 249px;
   justify-content: space-evenly;
   margin: 0 0.5rem;
   overflow: hidden;

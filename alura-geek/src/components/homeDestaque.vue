@@ -34,9 +34,9 @@ export default {
     flex-direction: column;
     justify-content: flex-end;
     height: 192px;
-    position:fixed;
-    left: 0;
-    padding: 16px;
+    left: -1rem;
+    position:relative;
+    padding: 1rem;
     width:100vw;
 }
 .destaque__titulo{
@@ -51,7 +51,8 @@ export default {
 @media screen and (min-width: 768px) {
     .container{
         height: 352px;
-        padding: 16px 32px;
+        padding: 1rem 2rem;
+        left:-2rem;
     }
     .destaque__titulo{
         font-size: 3.25rem;
@@ -66,6 +67,7 @@ export default {
     .container{
         height: 352px;
         padding: 32px 100px;
+        left:-100px
     }
 }
 </style>

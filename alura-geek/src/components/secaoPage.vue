@@ -29,7 +29,7 @@ export default {
 .container {
   display: flex;
   font-weight: 700;
-  margin-bottom:1rem;
+  margin:4rem 0 1rem 0;
   justify-content: space-between;
 }
 .secao__link {
