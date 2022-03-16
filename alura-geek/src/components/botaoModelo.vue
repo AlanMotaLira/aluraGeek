@@ -19,15 +19,15 @@ export default {
 </script>
 <style scoped>
 .botao {
+  align-items: center;
   border: 1px solid var(--botao-padrao);
   cursor: pointer;
   font-size: 0.875rem;
   font-weight: 600;
   height: 40px;
-  padding: 0.75rem 1rem;
   text-align: center;
   transition: 500ms all;
-  width: 133px;
+  width: 119px;
 }
 .modelo-1 {
   background-color: var(--botao-padrao);
@@ -43,21 +43,12 @@ export default {
 .modelo-2:hover {
   background-color: var(--botao-padrao-20);
 }
-
-@media screen and (min-width: 768px) {
-  .botao {
-    font-size: 0.875rem;
-    font-weight: 600;
-    width: 166px;
-  }
-}
-
 @media screen and (min-width: 1136px) {
   .botao {
     font-size: 1rem;
     font-weight: 400;
     height: 51px;
-    width: 182px;
+    width: 130px;
   }
 }
 </style>

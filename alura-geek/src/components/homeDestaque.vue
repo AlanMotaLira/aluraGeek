@@ -34,7 +34,7 @@ export default {
     flex-direction: column;
     justify-content: flex-end;
     height: 192px;
-    position: absolute;
+    position:fixed;
     left: 0;
     padding: 16px;
     width:100vw;
