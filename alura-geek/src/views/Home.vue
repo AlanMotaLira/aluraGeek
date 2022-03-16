@@ -3,8 +3,9 @@
     <Cabecalho-principal />
     <main>
       <Home-destaque />
-      <div class="teste"><Card-padrao /></div>
-      
+      <div class="teste">
+        <Card-padrao />
+      </div>
     </main>
   </div>
 </template>
