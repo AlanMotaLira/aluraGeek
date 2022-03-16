@@ -2,25 +2,26 @@
   <div>
     <Cabecalho-principal />
     <main>
-      <article>
+      <section>
         <Home-destaque />
-      </article>
-      <article 
+      </section>
+      <section 
         v-for="grupo in grupoProdutos"
         :key="grupo.codigo"
       >
         <Secao-page :titulo="grupo.nome">
           <template #cards>
             <Card-padrao
-              v-for="produto in produtos"
+              v-for="(produto, index) in agruparCard(grupo.codigo)"
               :key="produto.image"
               :nome="produto.nome"
               :preco="produto.preco"
               :image="produto.image"
+              :index="index"
             />
           </template>
         </Secao-page>
-      </article>
+      </section>
     </main>
   </div>
 </template>
@@ -67,6 +68,12 @@ export default {
           codigo: "co-01",
         },
         {
+          nome: "Action Figure Stormtrooper",
+          preco: 300.9,
+          image: "unsplash_4OHkK555s1A",
+          codigo: "co-01",
+        },
+        {
           nome: "Action Figure Kylo Ren",
           preco: 250.9,
           image: "unsplash_1VV1MRafd7A",
@@ -99,12 +106,10 @@ export default {
   },
 
   methods: {
-    mapearCard(grupo) {
-      this.produtos.map((item) => {
-        if (item.codigo === grupo) {
-          return item;
-        }
-      });
+    agruparCard(grupo) {
+      const cards = this.produtos.filter((item) => grupo === item.codigo);
+
+      return cards.slice(0, 6);
     },
   },
 };

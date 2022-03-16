@@ -26,7 +26,7 @@ export default {
 .container{
     display: flex;
     line-height: 1.6;
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 41.15%, rgba(0, 0, 0, 0.8) 100%), url("../assets/img/banner.png");
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 41.15%, rgba(0, 0, 0, 0.8) 100%), url("../../static/img/banner.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;

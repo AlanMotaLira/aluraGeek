@@ -1,27 +1,34 @@
 <template>
-  <article class="card">
+  <section
+    :id="`card${index}`"
+    class="card"
+  >
     <img
       class="card__imagem"
-      :src="filename"
+      :src="require(`../../static/card/${image}.jpg`)"
       :alt="nome"
     >
-    <section class="card__item">
+    <article class="card__item">
       <h3 class="card__item--titulo">
         {{ nome }}
       </h3>
       <p class="card__item--preco">
-        `R$ {{ preco }}`
+        R$ {{ preco }}
       </p>
       <a
         href="#"
         class="card__item--link"
       > Ver produto </a>
-    </section>
-  </article>
+    </article>
+  </section>
 </template>
 <script>
 export default {
   props: {
+    "index": {
+      type: String,
+      required: true,
+    },
     image: {
       type: String,
       required: true,
@@ -34,11 +41,6 @@ export default {
       type: Number,
       required: true,
     },
-  },
-  data(){
-    return{
-     filename:`/assets/img/card/${this.image}.jpg`
-    }
   }
 };
 </script>
@@ -46,12 +48,11 @@ export default {
 .card {
   display: flex;
   border-radius: 1rem;
-  box-shadow: 0px 0px 22px -8px var(--texto-destaque);
+  box-shadow: var(--botao-padrao-20) 0px 7px 29px 0px;
   color: var(--texto-padrao);
   flex-direction: column;
   height: 249px;
   justify-content: space-evenly;
-  margin: 0 0.5rem;
   overflow: hidden;
   width: 156px;
 }
@@ -60,10 +61,12 @@ export default {
   width: 100%;
 }
 .card__item {
-  display: grid;
-  gap: 8px;
-  grid-template-columns: 1fr;
-  padding: 16px;
+  display: flex;
+  align-items:flex-start;
+  flex-direction: column;
+  justify-content: space-between;
+  line-height:1.4rem;
+  padding: 0.5rem;
 }
 .card__item--link,
 .card__item--preco {
@@ -76,7 +79,7 @@ export default {
 .card__item--titulo {
   color: var(--texto-padrao);
   font-weight: 500;
-  font-size: 14px;
+  font-size: 0.75rem;
 }
 
 @media screen and (min-width: 768px) {
