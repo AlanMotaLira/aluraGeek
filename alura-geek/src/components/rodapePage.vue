@@ -4,17 +4,37 @@
       <section class="rodape__links">
         <Logo-alura-geek alt="logotipo da AluraGeek" />
         <nav class="rodape__link--lista">
-          <a v-for="lista in listagens" :key="lista.titulo" :href="lista.href" class="">
+          <a
+            v-for="lista in listagens"
+            :key="lista.titulo"
+            :href="lista.href"
+            class=""
+          >
             {{ lista.titulo }}
           </a>
         </nav>
       </section>
       <section class="rodape__contato">
-        <h4 class="rodape__contato--titulo">Fale Conosco</h4>
-        <form action="" class="rodape__contato--form">
-          <Input-modelo chave="input-nome" rotulo="Nome" tipo="text" />
-          <textarea rows="3" placeholder="Escreva sua mensagem" />
-          <Botao-modelo modelo="modelo-1" rotulo="Enviar mensagem" />
+        <h4 class="rodape__contato--titulo">
+          Fale Conosco
+        </h4>
+        <form
+          action=""
+          class="rodape__contato--form"
+        >
+          <Input-modelo
+            chave="input-nome"
+            rotulo="Nome"
+            tipo="text"
+          />
+          <textarea
+            rows="3"
+            placeholder="Escreva sua mensagem"
+          />
+          <Botao-modelo
+            modelo="modelo-1"
+            rotulo="Enviar mensagem"
+          />
         </form>
       </section>
     </div>
@@ -99,14 +119,15 @@ export default {
 .rodape_fim{
     font-size: 1rem;
     height: 6.5rem;
+    line-height: 2.3rem;
     text-align: center;
-    padding: 3.25rem 0;
+    padding: 2.25rem 0;
 }
 
 @media screen and (min-width: 768px) {
   .container {
     justify-items: start;
-    grid-template-columns: repeat(2, minmax(50%, 1fr));
+    grid-template-columns: repeat(2, minmax(auto, 1fr));
   }
   .rodape {
     left: -2rem;
@@ -118,20 +139,20 @@ export default {
 }
 
 @media screen and (min-width: 1136px) {
+
   .rodape {
     margin: 1rem 0;
-    left: -100px;
-    width: 100vw;;
+    left:-100px;
+    width: 99vw;
   }
-
   .rodape__links {
     flex-direction: row;
     align-items: flex-start;
     justify-content: space-around;
-    width: 40vw;
+    width: 30vw;
   }
   .rodape__contato--form {
-    width: 40vw;
+    width: 30vw;
   }
   .rodape__link--lista {
     margin: 0;

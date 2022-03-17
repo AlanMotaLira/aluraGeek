@@ -7,8 +7,12 @@
 <script>
 import './assets/styles/reset.css'
 import './assets/styles/styles-global.css';
+import rodapePage from './components/rodapePage.vue'
 
 export default {
+  components:{
+    'Rodape-page':rodapePage
+  }
 };
 </script>
 <style>

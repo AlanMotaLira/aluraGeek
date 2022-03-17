@@ -13,6 +13,7 @@
       <Botao-modelo
         modelo="modelo-2"
         rotulo="Login"
+        @click="fecharModal()"
       />
       <button
         class="cabecalho__botao-pesquisa"
@@ -27,23 +28,41 @@
         placeholder="O que deseja encontrar?"
       />
     </header>
+    <Modal-padrao
+      :feedback="feedbackModal"
+      @fecharModal="fecharModal()"
+    >
+      <template #conteudo>
+        <Formulario-login />
+      </template>
+    </Modal-padrao>
   </div>
 </template>
 <script>
 import botaoModelo from "./botaoModelo.vue";
 import inputPesquisa from "./inputPesquisa.vue";
+import formularioLogin from "./formularioLogin.vue"
 import logoAluraGeek from "../assets/svg/logoAluraGeek.vue";
+import modalPadrao from "./modalPadrao.vue"
 
 export default {
   components: {
     "Botao-modelo": botaoModelo,
     "Input-pesquisa": inputPesquisa,
+    "Formulario-login":formularioLogin,
     "Logo-alura-geek": logoAluraGeek,
+    "Modal-padrao":modalPadrao,
   },
   data() {
     return {
       filtro: false,
+      feedbackModal: true,
     };
+  },
+    methods: {
+    fecharModal() {
+      this.feedbackModal = false;
+    }
   },
 };
 </script>

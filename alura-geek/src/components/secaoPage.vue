@@ -62,6 +62,7 @@ export default {
 @media screen and (min-width: 1136px) {
   .secao__card{
     grid-template-columns: repeat(6, minmax(176px, 1fr));
+    overflow: initial;
   }
 
 }

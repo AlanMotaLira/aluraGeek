@@ -1,8 +1,5 @@
 <template>
   <fieldset class="item">
-    <label :for="chave" class="item__Legenda">
-      {{ rotulo }}
-    </label>
     <input
       :id="chave"
       v-model="valor"
@@ -10,7 +7,13 @@
       :type="tipo"
       required
       @input="dados($event.target.value)"
-    />
+    >
+    <label
+      :for="chave"
+      class="item__Legenda"
+    >
+      {{ rotulo }}
+    </label>
   </fieldset>
 </template>
 <script>
@@ -44,7 +47,7 @@ export default {
 <style scoped>
 .item {
   display: flex;
-  flex-direction: column;
+  flex-direction:column-reverse;
   background: #ffffff;
   border-radius: 4px;
   box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
@@ -57,7 +60,7 @@ export default {
   z-index: 1;
 }
 .item__dados {
- width: 100%;
+  width: 100%;
 }
 .item__dados:focus,
 .item__dados:before,
@@ -65,9 +68,19 @@ export default {
   color: var(--texto-padrao);
   outline: none;
 }
-.item__Legenda{
-    color:var(--texto-desfocado);
-    font-size: 0.75rem;
-    margin:0.2rem
+
+.item__Legenda {
+  color: var(--texto-desfocado);
+  font-size: 0.75rem;
+  margin: 0.2rem;
+  transition: 0.2s ease all;
+  pointer-events: none;
+  position: absolute;
+  top:0.2rem;
+}
+.item__dados:focus + .item__Legenda,
+.item__dados:valid + .item__Legenda {
+  color: var(--texto-destaque);
+  font-weight: 700;
 }
 </style>

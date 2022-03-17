@@ -67,7 +67,9 @@ export default {
     .container{
         height: 352px;
         padding: 32px 100px;
-        left:-100px
+        left:-100px;
+        width:99vw;
+
     }
 }
 </style>
