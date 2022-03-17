@@ -1,31 +1,21 @@
 <template>
-  <section
-    :id="`card${index}`"
-    class="card"
-  >
-    <img
-      class="card__imagem"
-      :src="require(`../../static/card/${image}.jpg`)"
-      :alt="nome"
-    >
+  <section :id="`card${index}`" class="card">
+    <figure>
+      <img class="card__imagem" :src="require(`../../static/card/${image}.jpg`)" :alt="nome" />
+    </figure>
     <article class="card__item">
       <h3 class="card__item--titulo">
         {{ nome }}
       </h3>
-      <p class="card__item--preco">
-        R$ {{ preco }}
-      </p>
-      <a
-        href="#"
-        class="card__item--link"
-      > Ver produto </a>
+      <p class="card__item--preco">R$ {{ preco }}</p>
+      <a href="#" class="card__item--link"> Ver produto </a>
     </article>
   </section>
 </template>
 <script>
 export default {
   props: {
-    "index": {
+    index: {
       type: String,
       required: true,
     },
@@ -41,7 +31,7 @@ export default {
       type: Number,
       required: true,
     },
-  }
+  },
 };
 </script>
 <style scoped>
@@ -62,10 +52,10 @@ export default {
 }
 .card__item {
   display: flex;
-  align-items:flex-start;
+  align-items: flex-start;
   flex-direction: column;
   justify-content: space-between;
-  line-height:1.4rem;
+  line-height: 1.4rem;
   padding: 0.5rem;
 }
 .card__item--link,

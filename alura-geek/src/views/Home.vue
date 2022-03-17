@@ -23,6 +23,7 @@
         </Secao-page>
       </section>
     </main>
+    <Rodape-page />
   </div>
 </template>
 
@@ -31,6 +32,7 @@ import cabecalhoPrincipal from "../components/cabecalhoPrincipal.vue";
 import homeDestaque from "../components/homeDestaque.vue";
 import cardPadrao from "../components/cardPadrao.vue";
 import secaoPage from "../components/secaoPage.vue";
+import rodapePage from '../components/rodapePage.vue'
 
 export default {
   name: "HomePage",
@@ -39,6 +41,7 @@ export default {
     "Cabecalho-principal": cabecalhoPrincipal,
     "Home-destaque": homeDestaque,
     "Secao-page": secaoPage,
+    "Rodape-page":rodapePage
   },
   data() {
     return {

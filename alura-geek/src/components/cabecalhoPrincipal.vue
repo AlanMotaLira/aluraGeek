@@ -3,7 +3,7 @@
     <header class="cabecalho">
       <div class="container">
         <h1 aria-label="aluraGeek">
-          <Logo-alura-geek alt="logotipo da HZC" />
+          <Logo-alura-geek alt="logotipo da AluraGeek" />
         </h1>
         <Input-pesquisa
           class="cabecalho__pesquisa-desktop"

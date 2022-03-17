@@ -22,7 +22,7 @@ export default {
   align-items: center;
   border: 1px solid var(--botao-padrao);
   cursor: pointer;
-  font-size: 0.875rem;
+  font-size: 0.87rem;
   font-weight: 600;
   height: 40px;
   text-align: center;
