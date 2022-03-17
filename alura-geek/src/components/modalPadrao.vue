@@ -2,11 +2,19 @@
   <div
     v-if="feedback"
     class="overlay"
-    @click="fecharModal()"
   >
     <div
       class="corpo"
     >
+      <button
+        class="login__sair"
+        @click="fecharModal()"
+      >
+        <i
+          class="fa-solid fa-circle-xmark"
+          aria-label="retorna a pagina principal"
+        />
+      </button>
       <slot name="conteudo" />
     </div>
   </div>
@@ -38,6 +46,17 @@ export default {
   z-index: 9999;
   margin:6rem auto;
   }
+  .login__sair{
+  color:var(--botao-padrao-80);
+  cursor: pointer;
+  font-size: 1.5rem;
+  position: absolute;
+  right: 1.5rem;
+  top: 1.5rem;
+}
+.login__sair:hover{
+  color: tomato;
+}
 .overlay {
   position: fixed;
   z-index: 9998;
@@ -50,13 +69,15 @@ export default {
 
 @media screen and (min-width: 768px) {
   .corpo{
-    width: 80vw
+    width: 80vw;
+    height: 50vh;
   }
 }
 
 @media screen and (min-width: 768px) {
     .corpo{
-    width: 50vw
+    width: 50vw;
+    height: 80vh;
   }
 }
 </style>

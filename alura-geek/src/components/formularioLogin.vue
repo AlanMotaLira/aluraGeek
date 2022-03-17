@@ -1,7 +1,9 @@
 <template>
   <section class="login">
     <form action="">
-      <h3 class="login__titulo">Iniciar Sessão</h3>
+      <h3 class="login__titulo">
+        Iniciar Sessão
+      </h3>
       <Input-modelo
         chave="login-email"
         rotulo="Email"
@@ -18,8 +20,8 @@
       />
     </form>
     <aside class="login__opcoes">
-      <a>Criar acesso</a>
-      <a>Esqueceu a senha?</a>
+      <a href="">Criar acesso</a>
+      <a href="">Esqueceu a senha?</a>
     </aside>
   </section>
 </template>
@@ -35,38 +37,38 @@ export default {
 };
 </script>
 <style scoped>
-.login{
+.login {
   display: flex;
-  text-align:center;
+  text-align: center;
   flex-direction: column;
   font-family: "Raleway";
   justify-content: center;
   padding: 6rem 3rem;
   vertical-align: middle;
 }
-.login__titulo{
-  color:var(--texto-padrao);
-  font-size: 1,125rem;
+.login__titulo {
+  color: var(--texto-padrao);
+  font-size: 1, 125rem;
   font-weight: 700;
   margin-bottom: 2rem;
 }
-.login__opcoes{
+.login__opcoes {
   display: flex;
-  color:var(--texto-desfocado);
+  color: var(--texto-desfocado);
   justify-content: space-between;
   padding: 1rem;
   font-size: 0.7rem;
   font-weight: 700;
 }
-.login__opcoes a{
+.login__opcoes a {
   cursor: pointer;
 }
-.login__opcoes a:hover{
-  color:var(--texto-destaque);
+.login__opcoes a:hover {
+  color: var(--texto-destaque);
 }
 
 @media screen and (min-width: 768px) {
-  .login{
+  .login {
     max-width: 600px;
   }
 }

@@ -13,7 +13,7 @@
       <Botao-modelo
         modelo="modelo-2"
         rotulo="Login"
-        @click="fecharModal()"
+        @click="opcaoModal(true)"
       />
       <button
         class="cabecalho__botao-pesquisa"
@@ -30,7 +30,7 @@
     </header>
     <Modal-padrao
       :feedback="feedbackModal"
-      @fecharModal="fecharModal()"
+      @fecharModal="opcaoModal(false)"
     >
       <template #conteudo>
         <Formulario-login />
@@ -56,12 +56,12 @@ export default {
   data() {
     return {
       filtro: false,
-      feedbackModal: true,
+      feedbackModal: false,
     };
   },
     methods: {
-    fecharModal() {
-      this.feedbackModal = false;
+    opcaoModal(op) {
+      this.feedbackModal = op
     }
   },
 };
