@@ -8,17 +8,17 @@
     <p class="destaque__subtitulo">
       Produtos selecionados com 33% de desconto
     </p>
-    <Botao-modelo
+    <BotaoModelo
       modelo="modelo-1"
       rotulo="Ver Consoles"
     />
   </article>
 </template>
 <script>
-import botaoModelo from "./botaoModelo.vue";
+import BotaoModelo from "./botaoModelo.vue";
 export default {
   components: {
-    "Botao-modelo": botaoModelo,
+    BotaoModelo,
   },
 };
 </script>

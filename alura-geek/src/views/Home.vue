@@ -1,17 +1,17 @@
 <template>
   <div>
-    <Cabecalho-principal />
+    <CabecalhoPrincipal />
     <main class="pageHome">
       <section>
-        <Home-destaque />
+        <HomeDestaque />
       </section>
       <section 
         v-for="grupo in grupoProdutos"
         :key="grupo.codigo"
       >
-        <Secao-page :titulo="grupo.nome">
+        <SecaoPage :titulo="grupo.nome">
           <template #cards>
-            <Card-padrao
+            <CardPadrao
               v-for="(produto, index) in agruparCard(grupo.codigo)"
               :key="produto.image"
               :nome="produto.nome"
@@ -20,26 +20,26 @@
               :index="index"
             />
           </template>
-        </Secao-page>
+        </SecaoPage>
       </section>
     </main>
   </div>
 </template>
 
 <script>
-import cabecalhoPrincipal from "../components/cabecalhoPrincipal.vue";
-import homeDestaque from "../components/homeDestaque.vue";
-import cardPadrao from "../components/cardPadrao.vue";
-import secaoPage from "../components/secaoPage.vue";
+import CabecalhoPrincipal from "../components/cabecalhoPrincipal.vue";
+import HomeDestaque from "../components/homeDestaque.vue";
+import CardPadrao from "../components/cardPadrao.vue";
+import SecaoPage from "../components/secaoPage.vue";
 
 
 export default {
   name: "HomePage",
   components: {
-    "Card-padrao": cardPadrao,
-    "Cabecalho-principal": cabecalhoPrincipal,
-    "Home-destaque": homeDestaque,
-    "Secao-page": secaoPage,
+    CardPadrao,
+    CabecalhoPrincipal,
+    HomeDestaque,
+    SecaoPage,
   },
   data() {
     return {

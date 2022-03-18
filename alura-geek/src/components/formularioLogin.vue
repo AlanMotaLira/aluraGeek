@@ -2,14 +2,14 @@
   <section class="login">
     <h3 class="login__titulo">Iniciar Sessão</h3>
     <form action="">
-      <Input-modelo
+      <InputModelo
         v-for="login in logins"
         :key="login.chave"
         :chave="login.chave"
         :rotulo="login.rotulo"
         :tipo="login.tipo"
       />
-      <Botao-modelo modelo="modelo-3" rotulo="Entrar" />
+      <BotaoModelo modelo="modelo-3" rotulo="Entrar" />
     </form>
     <nav class="login__opcoes">
       <a
@@ -24,13 +24,13 @@
   </section>
 </template>
 <script>
-import inputModelo from "./inputModelo.vue";
-import botaoModelo from "./botaoModelo.vue";
+import InputModelo from "./inputModelo.vue";
+import BotaoModelo from "./botaoModelo.vue";
 
 export default {
   components: {
-    "Input-modelo": inputModelo,
-    "Botao-modelo": botaoModelo,
+    InputModelo,
+    BotaoModelo,
   },
   data() {
     return {

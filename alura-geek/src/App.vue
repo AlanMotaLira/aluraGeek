@@ -1,17 +1,17 @@
 <template>
   <div class="page">
     <router-view />
-    <Rodape-page />
+    <RodapePage />
   </div>
 </template>
 <script>
 import './assets/styles/reset.css'
 import './assets/styles/styles-global.css';
-import rodapePage from './components/rodapePage.vue'
+import RodapePage from './components/rodapePage.vue'
 
 export default {
   components:{
-    'Rodape-page':rodapePage
+    RodapePage
   }
 };
 </script>

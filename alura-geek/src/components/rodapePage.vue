@@ -2,7 +2,7 @@
   <footer class="rodape">
     <div class="container">
       <section class="rodape__links">
-        <Logo-alura-geek alt="logotipo da AluraGeek" />
+        <LogoAluraGeek alt="logotipo da AluraGeek" />
         <nav class="rodape__link--lista">
           <a
             v-for="lista in listagens"
@@ -22,7 +22,7 @@
           action=""
           class="rodape__contato--form"
         >
-          <Input-modelo
+          <InputModelo
             chave="input-nome"
             rotulo="Nome"
             tipo="text"
@@ -31,7 +31,7 @@
             rows="3"
             placeholder="Escreva sua mensagem"
           />
-          <Botao-modelo
+          <BotaoModelo
             modelo="modelo-1"
             rotulo="Enviar mensagem"
           />
@@ -45,14 +45,14 @@
   </footer>
 </template>
 <script>
-import logoAluraGeek from "../assets/svg/logoAluraGeek.vue";
-import inputModelo from "../components/inputModelo.vue";
-import botaoModelo from "../components/botaoModelo.vue";
+import LogoAluraGeek from "../assets/svg/logoAluraGeek.vue";
+import InputModelo from "../components/inputModelo.vue";
+import BotaoModelo from "../components/botaoModelo.vue";
 export default {
   components: {
-    "Botao-modelo": botaoModelo,
-    "Input-modelo": inputModelo,
-    "Logo-alura-geek": logoAluraGeek,
+    BotaoModelo,
+    InputModelo,
+    LogoAluraGeek,
   },
   data() {
     return {
