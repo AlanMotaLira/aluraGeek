@@ -1,10 +1,11 @@
 FROM node:17-slim
 LABEL maintainer "Alan Lira <alan.lira08@gmail.com>"
 WORKDIR /home/node/app
-ARG PORT=8000
+ARG PORT=8080
 ENV PORT=$PORT
 EXPOSE $PORT
+RUN npm install -g npm@6.14.8
 COPY package.json package-lock.json* ./
 RUN npm install --no-optional && npm cache clean --force
 WORKDIR /home/node/app/projeto
-CMD npm run start
+CMD npm run serve
