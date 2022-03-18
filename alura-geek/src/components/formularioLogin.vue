@@ -1,16 +1,22 @@
 <template>
   <section class="login">
-    <h3 class="login__titulo">Iniciar Sessão</h3>
+    <h3 class="login__titulo">
+      {{ titulos[selecionaveis.findIndex(i=> i === selecionado)] }}
+    </h3>
     <form action="">
       <InputModelo
-        v-for="login in logins"
-        :key="login.chave"
-        :chave="login.chave"
-        :rotulo="login.rotulo"
-        :tipo="login.tipo"
+        v-for="grupo in grupoInputs()"
+        :key="grupo.chave"
+        :chave="grupo.chave"
+        :rotulo="grupo.rotulo"
+        :tipo="grupo.tipo"
       />
-      <BotaoModelo modelo="modelo-3" rotulo="Entrar" />
+      <BotaoModelo
+        modelo="modelo-3"
+        :rotulo="rotuloBotao[selecionaveis.findIndex(i=> i === selecionado)]"
+      />
     </form>
+
     <nav class="login__opcoes">
       <a
         v-for="selecionavel in selecionaveis"
@@ -34,15 +40,33 @@ export default {
   },
   data() {
     return {
-      selecionado: "Esqueceu a senha?",
+      selecionado: "Login",
       selecionaveis: ["Login", "Criar acesso", "Esqueceu a senha?"],
-      logins: [
+      titulos: [
+        "Iniciar Sessão",
+        "Criar Novo Login",
+        "Informe o seu email para a recuperação da senha",
+      ],
+      rotuloBotao:["Entrar","Enviar","Verificar"],
+      inputs: [
         { chave: "nome", rotulo: "Nome", tipo: "string" },
         { chave: "email", rotulo: "Email", tipo: "email" },
         { chave: "senha", rotulo: "Senha", tipo: "password" },
         { chave: "conf-senha", rotulo: "Confirma a Senha", tipo: "password" },
       ],
     };
+  },
+  methods: {
+    grupoInputs() {
+      if (this.selecionado === "Login") {
+        return this.inputs.slice(0, 2);
+      }
+      if (this.selecionado === "Esqueceu a senha?") {
+        return this.inputs.slice(1, 2);
+      } else {
+        return this.inputs;
+      }
+    },
   },
 };
 </script>
@@ -52,7 +76,7 @@ export default {
   font-family: "Raleway";
   flex-direction: column;
   justify-content: center;
-  padding: 6rem 3rem;
+  padding: 3.5rem 3rem;
   text-align: center;
   vertical-align: middle;
 }

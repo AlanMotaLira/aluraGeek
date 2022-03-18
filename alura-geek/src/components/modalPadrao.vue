@@ -40,8 +40,7 @@ export default {
   border-radius: 1rem;
   flex-direction: column;
   height: auto;
-  margin:6rem auto;
-  padding: 2%;
+  margin:4rem auto;
   position: relative;
   width: 90vw;
   z-index: 9999;
