@@ -1,0 +1,66 @@
+version: "3.9"
+service:
+  alurageek:
+    build:
+      dockerfile: dockerfile
+      context: ../alura-geek/
+    image: alurageek:1.0
+    container_name: alurageek
+    restart: always
+    working_dir: /home/node/app/projeto
+    networks:
+      - alurageek
+    ports:
+      - "3030:3030"
+      - "8080:8080"
+    volumes:
+      - ../alura-geek/:/home/node/app/projeto
+      - ../alura-geek/package-lock.json:/home/node/app/package-lock.json
+      - ../alura-geek/package.json:/home/node/app/package.json
+    depends_on:
+      - "node"
+      - "mysql"
+
+  node:
+    build:
+      dockerfile: dockerfile
+      context: ../API-AluraGeek/
+    image: api-alurageek:1.0
+    container_name: api-alurageek
+    restart: always
+    working_dir: /home/node/app/projeto
+    networks:
+      - alurageek
+    ports:
+      - "3000:3000"
+      - "8000:8000"
+    volumes:
+      - ../API-AluraGeek/:/home/node/app/projeto
+      - ../API-AluraGeek/package-lock.json:/home/node/app/package-lock.json
+      - ../API-AluraGeek/package.json:/home/node/app/package.json
+    depends_on:
+      - "mysql"
+
+  mysql:
+    image: mysql:8.0.28-oracle
+    container_name: mysql-alurageek
+    environment:
+      MYSQL_ROOT_PASSWORD: walter
+      MYSQL_DATABASE: alura_geek
+      MYSQL_USER: root
+      MYSQL_PASSWORD: walter
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql:/var/lib/mysql
+      - mysql_config:/etc/mysql
+    networks:
+      - alurageek
+
+networks:
+  api-sequelize:
+    driver: bridge
+
+volumes:
+  mysql:
+  mysql_config:
