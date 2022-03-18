@@ -1,28 +1,26 @@
 <template>
   <section class="login">
+    <h3 class="login__titulo">Iniciar Sessão</h3>
     <form action="">
-      <h3 class="login__titulo">
-        Iniciar Sessão
-      </h3>
       <Input-modelo
-        chave="login-email"
-        rotulo="Email"
-        tipo="Email"
+        v-for="login in logins"
+        :key="login.chave"
+        :chave="login.chave"
+        :rotulo="login.rotulo"
+        :tipo="login.tipo"
       />
-      <Input-modelo
-        chave="login-senha"
-        rotulo="Senha"
-        tipo="password"
-      />
-      <Botao-modelo
-        modelo="modelo-3"
-        rotulo="Entrar"
-      />
+      <Botao-modelo modelo="modelo-3" rotulo="Entrar" />
     </form>
-    <aside class="login__opcoes">
-      <a href="">Criar acesso</a>
-      <a href="">Esqueceu a senha?</a>
-    </aside>
+    <nav class="login__opcoes">
+      <a
+        v-for="selecionavel in selecionaveis"
+        v-show="selecionavel != selecionado"
+        :key="selecionavel"
+        @click="selecionado = selecionavel"
+      >
+        {{ selecionavel }}
+      </a>
+    </nav>
   </section>
 </template>
 <script>
@@ -34,31 +32,37 @@ export default {
     "Input-modelo": inputModelo,
     "Botao-modelo": botaoModelo,
   },
+  data() {
+    return {
+      selecionado: "Esqueceu a senha?",
+      selecionaveis: ["Login", "Criar acesso", "Esqueceu a senha?"],
+      logins: [
+        { chave: "nome", rotulo: "Nome", tipo: "string" },
+        { chave: "email", rotulo: "Email", tipo: "email" },
+        { chave: "senha", rotulo: "Senha", tipo: "password" },
+        { chave: "conf-senha", rotulo: "Confirma a Senha", tipo: "password" },
+      ],
+    };
+  },
 };
 </script>
-<style scoped>
+<style>
 .login {
   display: flex;
-  text-align: center;
-  flex-direction: column;
   font-family: "Raleway";
+  flex-direction: column;
   justify-content: center;
   padding: 6rem 3rem;
+  text-align: center;
   vertical-align: middle;
-}
-.login__titulo {
-  color: var(--texto-padrao);
-  font-size: 1, 125rem;
-  font-weight: 700;
-  margin-bottom: 2rem;
 }
 .login__opcoes {
   display: flex;
   color: var(--texto-desfocado);
-  justify-content: space-between;
-  padding: 1rem;
   font-size: 0.7rem;
   font-weight: 700;
+  justify-content: space-between;
+  padding: 1rem;
 }
 .login__opcoes a {
   cursor: pointer;
@@ -66,10 +70,10 @@ export default {
 .login__opcoes a:hover {
   color: var(--texto-destaque);
 }
-
-@media screen and (min-width: 768px) {
-  .login {
-    max-width: 600px;
-  }
+.login__titulo {
+  color: var(--texto-padrao);
+  font-size: 1, 125rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
 }
 </style>

@@ -7,7 +7,7 @@
       class="corpo"
     >
       <button
-        class="login__sair"
+        class="sair"
         @click="fecharModal()"
       >
         <i
@@ -39,45 +39,45 @@ export default {
   background: var(--pagina-claro);
   border-radius: 1rem;
   flex-direction: column;
+  height: auto;
+  margin:6rem auto;
   padding: 2%;
   position: relative;
   width: 90vw;
-  height: 40vh;
   z-index: 9999;
-  margin:6rem auto;
-  }
-  .login__sair{
-  color:var(--botao-padrao-80);
+}
+.sair{
+  color:var(--botao-padrao);
   cursor: pointer;
   font-size: 1.5rem;
   position: absolute;
   right: 1.5rem;
+  transition: 500ms all;
   top: 1.5rem;
 }
-.login__sair:hover{
-  color: tomato;
+.sair:hover{
+  color: var(--botao-padrao-80);
 }
 .overlay {
-  position: fixed;
-  z-index: 9998;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
+  height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 9998;
 }
 
 @media screen and (min-width: 768px) {
   .corpo{
     width: 80vw;
-    height: 50vh;
   }
 }
 
 @media screen and (min-width: 768px) {
     .corpo{
     width: 50vw;
-    height: 80vh;
   }
 }
 </style>
+

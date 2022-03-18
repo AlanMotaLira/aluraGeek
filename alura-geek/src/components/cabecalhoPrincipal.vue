@@ -3,14 +3,14 @@
     <header class="cabecalho">
       <div class="container">
         <h1 aria-label="aluraGeek">
-          <Logo-alura-geek alt="logotipo da AluraGeek" />
+          <LogoAluraGeek alt="logotipo da AluraGeek" />
         </h1>
-        <Input-pesquisa
+        <InputPesquisa
           class="cabecalho__pesquisa-desktop"
           placeholder="O que deseja encontrar?"
         />
       </div>
-      <Botao-modelo
+      <BotaoModelo
         modelo="modelo-2"
         rotulo="Login"
         @click="opcaoModal(true)"
@@ -22,36 +22,36 @@
       >
         <i class="fas fa-magnifying-glass" />
       </button>
-      <Input-pesquisa
+      <InputPesquisa
         v-if="filtro"
         class="cabecalho__botao-pesquisa"
         placeholder="O que deseja encontrar?"
       />
     </header>
-    <Modal-padrao
+    <ModalPadrao
       :feedback="feedbackModal"
       @fecharModal="opcaoModal(false)"
     >
       <template #conteudo>
-        <Formulario-login />
+        <FormularioLogin />
       </template>
-    </Modal-padrao>
+    </ModalPadrao>
   </div>
 </template>
 <script>
-import botaoModelo from "./botaoModelo.vue";
-import inputPesquisa from "./inputPesquisa.vue";
-import formularioLogin from "./formularioLogin.vue"
-import logoAluraGeek from "../assets/svg/logoAluraGeek.vue";
-import modalPadrao from "./modalPadrao.vue"
+import BotaoModelo from "./botaoModelo.vue";
+import InputPesquisa from "./inputPesquisa.vue";
+import LogoAluraGeek from "../assets/svg/logoAluraGeek.vue";
+import ModalPadrao from "./modalPadrao.vue"
+import FormularioLogin from './formularioLogin.vue';
 
 export default {
   components: {
-    "Botao-modelo": botaoModelo,
-    "Input-pesquisa": inputPesquisa,
-    "Formulario-login":formularioLogin,
-    "Logo-alura-geek": logoAluraGeek,
-    "Modal-padrao":modalPadrao,
+    BotaoModelo,
+    InputPesquisa,
+    LogoAluraGeek,
+    ModalPadrao,
+    FormularioLogin,
   },
   data() {
     return {

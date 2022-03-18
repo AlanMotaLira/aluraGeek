@@ -129,6 +129,9 @@ export default {
     justify-items: start;
     grid-template-columns: repeat(2, minmax(auto, 1fr));
   }
+  .rodape__contato--form {
+    width: 40vw;
+  }
   .rodape {
     left: -2rem;
   }
@@ -149,9 +152,6 @@ export default {
     flex-direction: row;
     align-items: flex-start;
     justify-content: space-around;
-    width: 30vw;
-  }
-  .rodape__contato--form {
     width: 30vw;
   }
   .rodape__link--lista {
