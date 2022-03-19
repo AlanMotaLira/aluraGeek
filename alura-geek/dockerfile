@@ -4,8 +4,7 @@ WORKDIR /home/node/app
 ARG PORT=8080
 ENV PORT=$PORT
 EXPOSE $PORT
-RUN npm install -g npm@6.14.8
 COPY package.json package-lock.json* ./
 RUN npm install --no-optional && npm cache clean --force
 WORKDIR /home/node/app/projeto
-CMD npm run serve
+CMD  npm run serve

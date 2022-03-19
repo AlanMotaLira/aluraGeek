@@ -19,6 +19,11 @@ services:
       - ../alura-geek/:/home/node/app/projeto
       - ../alura-geek/package-lock.json:/home/node/app/package-lock.json
       - ../alura-geek/package.json:/home/node/app/package.json
+    environment:
+      - NODE_ENV=development
+      - CHOKIDAR_USEPOLLING=true
+      - CHOKIDAR_INTERVAL=100
+
     depends_on:
       - "node"
       - "mysql"
@@ -51,6 +56,7 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: "123456"
       MYSQL_DATABASE: alura_geek
+      MYSQL_USER: root
     ports:
       - "3306:3306"
     restart: unless-stopped
