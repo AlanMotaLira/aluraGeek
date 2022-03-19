@@ -16,7 +16,7 @@ module.exports = {
       codigo:{
         allowNull: false,
         type: Sequelize.INTEGER,
-        references: { model: "Grupos", key: "codigo" },
+        references: { model: "Grupos", key: "id" },
       },
       nome: {
         allowNull: false,
@@ -29,15 +29,15 @@ module.exports = {
         type: Sequelize.STRING
       },
       descricao: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING(5000)
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
       }
     });
   },

@@ -42,6 +42,8 @@ module.exports = (sequelize, DataTypes) => {
       sequelize,
       modelName: "Usuarios",
       paranoid: true,
+      timestamps: true,
+      updatedAt: 'updateTimestamp'
     }
   );
   return Usuarios;

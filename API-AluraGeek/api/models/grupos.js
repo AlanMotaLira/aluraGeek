@@ -22,12 +22,13 @@ module.exports = (sequelize, DataTypes) => {
             msg: "Por favor, informe o nome",
           },
         },
-      },
-      codigo: DataTypes.INTEGER,
+      }
     },
     {
       sequelize,
       modelName: "Grupos",
+      timestamps: true,
+      updatedAt: 'updateTimestamp'
     }
   );
   return Grupos;

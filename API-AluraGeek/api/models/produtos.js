@@ -29,11 +29,16 @@ module.exports = (sequelize, DataTypes) => {
       imagem: {
         type: DataTypes.STRING,
       },
-      descricao: DataTypes.STRING,
+      descricao: {
+        type:DataTypes.STRING,
+
+      }
     },
     {
       sequelize,
       modelName: "Produtos",
+      timestamps: true,
+      updatedAt: 'updateTimestamp'
     }
   );
   return Produtos;
