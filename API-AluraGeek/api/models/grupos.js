@@ -27,8 +27,7 @@ module.exports = (sequelize, DataTypes) => {
     {
       sequelize,
       modelName: "Grupos",
-      timestamps: true,
-      updatedAt: 'updateTimestamp'
+      paranoid: true,
     }
   );
   return Grupos;
