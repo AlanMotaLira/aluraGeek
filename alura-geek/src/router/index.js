@@ -1,26 +1,41 @@
-import { createRouter, createWebHashHistory } from 'vue-router';
-import Home from '../views/Home.vue';
+import { createRouter, createWebHistory } from 'vue-router';
+import Home from '../views/Home.vue'
+import NaoRegistrado from "../views/NaoRegistrado.vue"
 
 const routes = [
   {
     path: '/',
     name: 'home',
     component: Home,
+    meta: {
+      public: true
+    }
   },
   {
-    path: '/about',
-    name: 'about',
-
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: 'about' */ '../views/AboutView.vue'),
+    path: "/naoregistrado",
+    name: "nao-registrado",
+    component: NaoRegistrado,
+    meta: {
+      public: true
+    }
   },
+  // {
+  //   path: "/perfil",
+  //   name: "perfil",
+  //   component: perfil
+  // },
 ];
 
 const router = createRouter({
-  history: createWebHashHistory(),
+  history: createWebHistory('/alurageek'),
   routes,
+});
+
+router.beforeEach((routeTo, routeFrom, next) => {
+  if (!routeTo.meta.public && !localStorage.getItem("usuario")) {
+    return next({ path: "/naoregistrado" });
+  }
+  next();
 });
 
 export default router;

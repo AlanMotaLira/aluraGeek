@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon ./api/index.js"
+    "dev": "nodemon ./src/app.js"
   },
   "keywords": [],
   "author": "Alan Lira",
@@ -15,12 +16,9 @@
     "body-parser": "^1.19.2",
     "express": "^4.17.3",
     "jsonwebtoken": "^8.5.1",
-    "mysql2": "^2.3.3",
-    "path": "^0.12.7",
-    "sequelize": "^6.17.0"
+    "mongoose": "^6.2.7"
   },
   "devDependencies": {
-    "nodemon": "^2.0.15",
-    "sequelize-cli": "^6.4.1"
+    "nodemon": "^2.0.15"
   }
 }

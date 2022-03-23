@@ -1,0 +1,40 @@
+version: "3.9"
+services:
+  mongodb:
+    image: mongo:4.4.6
+    container_name: mongo-alurageek
+    ports:
+      - 27017:27017
+    volumes:
+      - ../volume:/data/db
+    networks: 
+      - backendB
+
+  node:
+    build:
+      dockerfile: dockerfile
+      context: ./
+    image: api-mongo:1.0
+    container_name: api-mongo
+    restart: unless-stopped
+    working_dir: /home/node/api/src
+    networks:
+      - frontendB
+      - backendB
+    ports:
+      - "3000:3000"
+      - "8000:8000"
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./src:/home/node/api/src
+      - ./package-lock.json:/home/node/api/package-lock.json
+      - ./package.json:/home/node/api/package.json
+    depends_on:
+      - "mongodb"
+
+networks:
+  frontendB:
+    driver: bridge
+  backendB:
+    driver: bridge

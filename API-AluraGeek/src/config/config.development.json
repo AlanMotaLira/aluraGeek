@@ -1,0 +1,6 @@
+{   
+    "databaseConfig":{
+        "host": "mongo-aluraGeek",
+        "database": "alurageek"
+    }
+}

@@ -6,7 +6,8 @@ services:
       context: ../alura-geek/
     image: alurageek:1.0
     container_name: alurageek
-    restart: always
+    # restart:always o banco inicia só
+    restart: unless-stopped
     working_dir: /home/node/app/projeto
     networks:
       - frontend
@@ -26,7 +27,7 @@ services:
 
     depends_on:
       - "node"
-      - "mysql"
+      - "mongodb"
 
   node:
     build:
@@ -35,7 +36,7 @@ services:
     image: api-alurageek:1.0
     container_name: api-alurageek
     restart: unless-stopped
-    working_dir: /home/node/app/api
+    working_dir: /home/node/api/src
     networks:
       - frontend
       - backend
@@ -45,28 +46,20 @@ services:
     stdin_open: true
     tty: true
     volumes:
-      - ../API-AluraGeek/api:/home/node/app/api
-      - ../API-AluraGeek/package-lock.json:/home/node/app/package-lock.json
-      - ../API-AluraGeek/package.json:/home/node/app/package.json
-      - ../API-AluraGeek/.sequelizerc:/home/node/app/.sequelizerc
+      - ../API-AluraGeek/src:/home/node/api/src
+      - ../API-AluraGeek/package-lock.json:/home/node/api/package-lock.json
+      - ../API-AluraGeek/package.json:/home/node/api/package.json
     depends_on:
-      - "mysql"
+      - "mongodb"
 
-  mysql:
-    image: mysql:8.0.28-oracle
-    container_name: mysql-alurageek
-    environment:
-      MYSQL_ROOT_PASSWORD: 123456
-      MYSQL_DATABASE: alura_geek
-      MYSQL_USER: Node
-      MYSQL_PASSWORD: 123456
+  mongodb:
+    image: mongo:4.4.6
+    container_name: mongo-alurageek
     ports:
-      - "3306:3306"
+      - 27017:27017
     volumes:
-      - ../mysql/log:/var/log/mysql
-      - ../mysql/data:/var/lib/mysql
-      - ../mysql/conf:/etc/MySQL/conf.d.
-    networks:
+      - ../volume:/data/db
+    networks: 
       - backend
 
 networks:

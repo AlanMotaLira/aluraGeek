@@ -27,6 +27,7 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 import CabecalhoPrincipal from "../components/cabecalhoPrincipal.vue";
 import HomeDestaque from "../components/homeDestaque.vue";
 import CardPadrao from "../components/cardPadrao.vue";
@@ -104,6 +105,13 @@ export default {
         { nome: "pelucia Pikachu", preco: 190.9, image: "unsplash_r27umXAelDc", codigo: "co-03" },
       ],
     };
+  },
+  computed:{
+    ...mapGetters(["Categorias"]),
+    consultar(){
+      console.log(this.Categorias)
+    }
+    
   },
 
   methods: {
