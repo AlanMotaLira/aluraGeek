@@ -1,6 +1,5 @@
 <template>
   <section
-    :id="`card${index}`"
     class="card"
   >
     <figure>
@@ -29,10 +28,6 @@
 <script>
 export default {
   props: {
-    index: {
-      type: Number,
-      required: true,
-    },
     image: {
       type: String,
       required: true,
@@ -53,7 +48,6 @@ export default {
   display: flex;
   border-radius: 1rem;
   box-shadow: var(--botao-padrao-20) 0px 7px 29px 0px;
-  color: var(--texto-padrao);
   flex-direction: column;
   height: 249px;
   justify-content: space-evenly;
@@ -81,7 +75,6 @@ export default {
   color: var(--texto-destaque);
 }
 .card__item--titulo {
-  color: var(--texto-padrao);
   font-weight: 500;
   font-size: 0.75rem;
 }

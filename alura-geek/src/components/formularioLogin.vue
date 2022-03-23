@@ -59,7 +59,7 @@ export default {
   methods: {
     grupoInputs() {
       if (this.selecionado === "Login") {
-        return this.inputs.slice(0, 2);
+        return this.inputs.slice(1, 3);
       }
       if (this.selecionado === "Esqueceu a senha?") {
         return this.inputs.slice(1, 2);
@@ -95,8 +95,7 @@ export default {
   color: var(--texto-destaque);
 }
 .login__titulo {
-  color: var(--texto-padrao);
-  font-size: 1, 125rem;
+  font-size: 1rem;
   font-weight: 700;
   margin-bottom: 2rem;
 }

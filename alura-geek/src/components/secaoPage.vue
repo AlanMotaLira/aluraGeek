@@ -48,7 +48,6 @@ export default {
   font-size: 1rem;;
 }
 .secao__titulo {
-  color: var(--texto-padrao);
   font-size: 2rem;
 }
 

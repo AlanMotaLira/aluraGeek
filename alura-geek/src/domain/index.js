@@ -2,7 +2,7 @@ import axios from "axios"
 
 
 const http = axios.create({
-  browserBaseURL: "http://app:8080",
+  baseURL: "http://localhost:8000"
 });
 
 

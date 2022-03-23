@@ -1,6 +1,6 @@
 <template>
   <div>
-    <header class="cabecalho">
+    <section class="page cabecalho">
       <div class="container">
         <h1 aria-label="aluraGeek">
           <LogoAluraGeek alt="logotipo da AluraGeek" />
@@ -27,7 +27,7 @@
         class="cabecalho__botao-pesquisa"
         placeholder="O que deseja encontrar?"
       />
-    </header>
+    </section>
     <ModalPadrao
       :feedback="feedbackModal"
       @fecharModal="opcaoModal(false)"
@@ -76,7 +76,6 @@ export default {
   justify-content: space-around;
 }
 .cabecalho__botao-pesquisa {
-  color: var(--texto-padrao);
   cursor: pointer;
   margin: 0 1rem;
 }

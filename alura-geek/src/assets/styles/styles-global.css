@@ -20,3 +20,20 @@
   font-family: "Raleway";
   box-sizing: border-box;
 }
+.page{
+  color: var(--texto-padrao);
+  font-family: "Raleway";
+  padding: 16px;
+}
+@media screen and (min-width: 768px) {
+  .page{
+    padding: 16px 32px;
+  }
+}
+
+@media screen and (min-width: 1136px) {
+.page{
+  margin: 0px 100px;
+  padding: 0px;
+}
+}

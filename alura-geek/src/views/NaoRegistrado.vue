@@ -1,31 +1,54 @@
 <template>
-  <section>
-    <span>
-      Acesso Negado!
-    </span>
-    <router-link
-      :to="{ name: 'Home' }">
-      Efetue o cadastro clicando aqui!
-    </router-link>
+  <section class="page pageHome">
+    <h2 class="feedback">
+      Retornar para a
+      <router-link
+        :to="{ name: 'home' }"
+      >
+        Página Inicial
+      </router-link>
+    </h2>
+    <FormularioLogin />
   </section>
 </template>
+
+<script>
+import FormularioLogin from "../components/formularioLogin.vue";
+export default {
+  components: {
+    FormularioLogin,
+  },
+};
+</script>
+
 <style scoped>
-span,
+.pageHome {
+  padding: 4rem 1rem 0 1rem;
+}
+.feedback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  font-weight: 700;
+}
 a {
   color: var(--texto-destaque);
-  font-weight: 700;
-  font-size: 2rem;
+  cursor: pointer;
+  margin: 0 0.6rem;
 }
 a {
   color: var(--botao-padrao-80);
 }
-section {
-  background: var(--pagina-claro);
-  display: flex;
-  text-align: center;
-  height: 100vh;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+@media screen and (min-width: 768px) {
+  .pageHome {
+    padding: 2rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .pageHome {
+    padding: 4rem 10rem 0 10rem;
+  }
 }
 </style>

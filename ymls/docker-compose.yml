@@ -56,7 +56,7 @@ services:
     image: mongo:4.4.6
     container_name: mongo-alurageek
     ports:
-      - 27017:27017
+      - "27017:27017"
     volumes:
       - ../volume:/data/db
     networks: 

@@ -51,7 +51,6 @@ export default {
   background: #ffffff;
   border-radius: 4px;
   box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
-  color: var(--texto-padrao);
   height: 56px;
   margin: 1rem 0;
   padding: 0.5rem;
@@ -65,7 +64,6 @@ export default {
 .item__dados:focus,
 .item__dados:before,
 .item__dados:valid {
-  color: var(--texto-padrao);
   outline: none;
 }
 

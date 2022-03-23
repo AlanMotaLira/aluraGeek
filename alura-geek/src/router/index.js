@@ -1,23 +1,22 @@
-import { createRouter, createWebHistory } from 'vue-router';
-import Home from '../views/Home.vue'
-import NaoRegistrado from "../views/NaoRegistrado.vue"
-
+import { createRouter, createWebHistory } from "vue-router";
+import Home from "../views/Home.vue";
+import NaoRegistrado from "../views/NaoRegistrado.vue";
 const routes = [
   {
-    path: '/',
-    name: 'home',
+    path: "",
+    name: "home",
     component: Home,
     meta: {
-      public: true
-    }
+      public: true,
+    },
   },
   {
     path: "/naoregistrado",
     name: "nao-registrado",
     component: NaoRegistrado,
     meta: {
-      public: true
-    }
+      public: true,
+    },
   },
   // {
   //   path: "/perfil",
@@ -27,7 +26,7 @@ const routes = [
 ];
 
 const router = createRouter({
-  history: createWebHistory('/alurageek'),
+  history: createWebHistory("/alurageek/"),
   routes,
 });
 

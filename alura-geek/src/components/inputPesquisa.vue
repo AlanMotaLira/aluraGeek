@@ -33,7 +33,6 @@ export default {
   background-color: var(--pagina-claro);
   border: none;
   border-radius: 20px;
-  color: var(--texto-padrao);
   justify-content: space-between;
   font-size: 0.75rem;
   font-weight: 400;

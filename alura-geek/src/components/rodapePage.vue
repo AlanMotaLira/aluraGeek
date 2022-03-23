@@ -1,7 +1,7 @@
 <template>
-  <footer class="rodape">
+  <section class="page rodape">
     <div class="container">
-      <section class="rodape__links">
+      <article class="rodape__links">
         <LogoAluraGeek alt="logotipo da AluraGeek" />
         <nav class="rodape__link--lista">
           <a
@@ -13,8 +13,8 @@
             {{ lista.titulo }}
           </a>
         </nav>
-      </section>
-      <section class="rodape__contato">
+      </article>
+      <article class="rodape__contato">
         <h4 class="rodape__contato--titulo">
           Fale Conosco
         </h4>
@@ -36,13 +36,9 @@
             rotulo="Enviar mensagem"
           />
         </form>
-      </section>
-    </div>
-    <section class="rodape_fim">
-      <h4>Desenvolvido por Alan Lira</h4>
-      <h3>2022</h3>
-    </section>
-  </footer>
+      </article>
+    </div>    
+  </section>
 </template>
 <script>
 import LogoAluraGeek from "../assets/svg/logoAluraGeek.vue";
@@ -79,15 +75,10 @@ export default {
 }
 .rodape {
   align-items: center;
-  color: var(--texto-padrao);
   font-size: 1rem;
-  left: -16px;
-  position: relative;
-  width: 100vw;
 }
 .container {
   display: grid;
-  background: var(--rodape-padrao);
   padding: 3rem 2rem;
   width: 100%;
   grid-template-columns: repeat(1, minmax(50%, 1fr));
@@ -108,20 +99,13 @@ export default {
   width: 100%;
 }
 .rodape__contato--form textarea {
-  background: #ffffff;
+  background: var(--pagina-padrao);
   border-radius: 4px;
   box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
   margin-bottom: 1rem;
 }
 .rodape__contato--titulo {
   font-weight: 700;
-}
-.rodape_fim{
-    font-size: 1rem;
-    height: 6.5rem;
-    line-height: 2.3rem;
-    text-align: center;
-    padding: 2.25rem 0;
 }
 
 @media screen and (min-width: 768px) {
@@ -132,9 +116,6 @@ export default {
   .rodape__contato--form {
     width: 40vw;
   }
-  .rodape {
-    left: -2rem;
-  }
   .rodape__links,
   .rodape__contato {
     text-align: left;
@@ -142,12 +123,6 @@ export default {
 }
 
 @media screen and (min-width: 1136px) {
-
-  .rodape {
-    margin: 1rem 0;
-    left:-100px;
-    width: 99vw;
-  }
   .rodape__links {
     flex-direction: row;
     align-items: flex-start;

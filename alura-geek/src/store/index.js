@@ -2,7 +2,6 @@ import { createStore } from 'vuex';
 import categoriaModule from './categoriaModule.js'
 import usuarioModule from './usuarioModule'
 
-
 export default createStore({
   state: {
   },

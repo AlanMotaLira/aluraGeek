@@ -1,6 +1,6 @@
 import http from "./index.js";
 
-class Services {
+class Domain {
   constructor(rota) {
     this.rota = rota;
   }
@@ -47,4 +47,4 @@ class Services {
   }
 }
 
-export default Services;
+export default Domain;
