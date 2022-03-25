@@ -1,6 +1,8 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Home from "../views/Home.vue";
 import NaoRegistrado from "../views/NaoRegistrado.vue";
+import PerfilUSuario from "../views/PerfilUsuario.vue";
+import SobreProduto from "../views/SobreProduto.vue";
 const routes = [
   {
     path: "",
@@ -18,11 +20,22 @@ const routes = [
       public: true,
     },
   },
-  // {
-  //   path: "/perfil",
-  //   name: "perfil",
-  //   component: perfil
-  // },
+  {
+    path: "/sobreproduto",
+    name: "sobre-produto",
+    component: SobreProduto,
+    meta: {
+      public: true,
+    },
+  },
+  {
+    path: "/perfil",
+    name: "perfil",
+    component: PerfilUSuario,
+    meta: {
+      public: true,
+    },
+  },
 ];
 
 const router = createRouter({

@@ -1,9 +1,12 @@
 <template>
-    <main class="page pageHome">
+    <section class="page pageHome">
       <section>
         <HomeDestaque />
       </section>
-      <section v-for="grupo in categoriasAtivas()" :key="grupo.codigo">
+      <section
+        v-for="grupo in categoriasAtivas()"
+        :key="grupo._id"
+      >
         <SecaoPage :titulo="grupo.categoria">
           <template #cards>
             <CardPadrao
@@ -12,11 +15,13 @@
               :nome="produto.nome"
               :preco="produto.preco"
               :image="produto.imagem"
+              :idProduto="produto._id"
+              :idCategoria="grupo._id"
             />
           </template>
         </SecaoPage>
       </section>
-    </main>
+    </section>
 </template>
 
 <script>

@@ -1,27 +1,27 @@
 <template>
-  <section
-    class="card"
-  >
+  <section class="card">
     <figure>
       <img
         class="card__imagem"
         :src="require(`../../static/card/${image}.jpg`)"
         :alt="nome"
-      >
+      />
     </figure>
     <article class="card__item">
       <h3 class="card__item--titulo">
         {{ nome }}
       </h3>
-      <p class="card__item--preco">
-        R$ {{ preco }}
+      <p
+        class="card__item--preco">
+          R$ {{ preco.toFixed(2) }}
       </p>
-      <a
-        href="#"
+      <router-link
+        :to="{ name: 'sobre-produto' }"
         class="card__item--link"
-      > 
-        Ver produto 
-      </a>
+        @click="produtoSelecionado({ idCategoria: idCategoria, idProduto: idProduto })"
+      >
+        Ver produto
+      </router-link>
     </article>
   </section>
 </template>
@@ -39,6 +39,19 @@ export default {
     preco: {
       type: Number,
       required: true,
+    },
+    idProduto: {
+      type: String,
+      required: true,
+    },
+    idCategoria: {
+      type: String,
+      required: true,
+    },
+  },
+  methods: {
+    produtoSelecionado(dados) {
+      return this.$store.dispatch("produtoSelecionado", dados);
     },
   },
 };
