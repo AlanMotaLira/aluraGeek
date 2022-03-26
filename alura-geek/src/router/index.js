@@ -32,9 +32,6 @@ const routes = [
     path: "/perfil",
     name: "perfil",
     component: PerfilUSuario,
-    meta: {
-      public: true,
-    },
   },
 ];
 

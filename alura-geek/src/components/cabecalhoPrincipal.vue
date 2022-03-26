@@ -11,10 +11,13 @@
         />
       </div>
       <BotaoModelo
+        v-show="!perfilAtivo"
         modelo="modelo-2"
         rotulo="Login"
         @click="opcaoModal(true)"
       />
+      <p v-show="perfilAtivo"><i class="fa fa-user"></i> {{perfilAtivo}}</p>
+      <button v-show="perfilAtivo" @click="efetuarLogout()" >sair</button>
       <button
         class="cabecalho__botao-pesquisa"
         aria-label="pesquisa"
@@ -33,7 +36,7 @@
       @fecharModal="opcaoModal(false)"
     >
       <template #conteudo>
-        <FormularioLogin />
+        <FormularioLogin @fecharModal="opcaoModal(false)" />
       </template>
     </ModalPadrao>
   </div>
@@ -55,6 +58,7 @@ export default {
   },
   data() {
     return {
+      perfilAtivo:!localStorage.getItem("usuario")?false:localStorage.getItem("usuario").toUpperCase(),
       filtro: false,
       feedbackModal: false,
     };
@@ -62,7 +66,13 @@ export default {
     methods: {
     opcaoModal(op) {
       this.feedbackModal = op
-    }
+    },
+    efetuarLogout() {
+      this.$store.commit("USUARIO_DESLOGADO");
+      localStorage.removeItem("usuario");
+      localStorage.removeItem("token");
+      this.$router.push({ name: "home" });
+    },
   },
 };
 </script>

@@ -7,12 +7,13 @@ class UsuarioDomain extends Domain {
     this.registro = "/registrar";
   }
   cadastroUsuario(usuario) {
-    return new Promise((resolve) => {
+    return new Promise((resolve,reject) => {
       http
         .post(this.rota + this.registro, usuario)
         .then((res) => resolve(res.data))
         .catch((erro) => {
           console.log(erro);
+          reject(erro);
         });
     });
   }

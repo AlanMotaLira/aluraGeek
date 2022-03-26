@@ -37,3 +37,21 @@
   padding: 0px;
 }
 }
+@keyframes moverAcima {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes moverAbaixo {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+  }
+}

@@ -1,7 +1,7 @@
 <template>
   <div>
     <header>
-    <CabecalhoPrincipal />
+      <CabecalhoPrincipal />
     </header>
     <main class="main">
       <router-view />

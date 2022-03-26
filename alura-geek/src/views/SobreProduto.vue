@@ -6,20 +6,24 @@
           class="produto__imagem"
           :src="require(`../../static/card/${produto[0].imagem}.jpg`)"
           :alt="produto[0].nome"
-        />
+        >
       </figure>
+
       <article class="produto__dados">
         <h2
-          class="produto__dados--titulo">
-            {{ produto[0].nome }}
+          class="produto__dados--titulo"
+        >
+          {{ produto[0].nome }}
         </h2>
         <p
-          class="produto__dados--preco">
-            R$ {{ produto[0].preco.toFixed(2) }}
+          class="produto__dados--preco"
+        >
+          R$ {{ produto[0].preco.toFixed(2) }}
         </p>
         <p
-          class="produto__dados--descricao">
-            {{ produto[0].descricao }}
+          class="produto__dados--descricao"
+        >
+          {{ produto[0].descricao }}
         </p>
       </article>
     </section>
@@ -30,16 +34,19 @@
       Voltar a pagina incial
       <i class="fa fa-house-chimney" />
     </router-link>
-    <SecaoPage titulo="Produtos similares">
+    <SecaoPage
+      titulo="Produtos similares"
+      modelo="modelo1"
+    >
       <template #cards>
         <CardPadrao
-          v-for="produto in produtos"
-          :key="produto._id"
-          :nome="produto.nome"
-          :preco="produto.preco"
-          :image="produto.imagem"
-          :idProduto="produto._id"
-          :idCategoria="this.Selecionados.idCategoria"
+          v-for="produtoSelecionado in produtos"
+          :key="produtoSelecionado._id"
+          :nome="produtoSelecionado.nome"
+          :preco="produtoSelecionado.preco"
+          :image="produtoSelecionado.imagem"
+          :idproduto="produtoSelecionado._id"
+          :idcategoria="this.Selecionados.idCategoria"
         />
       </template>
     </SecaoPage>
@@ -52,15 +59,16 @@ import CardPadrao from "../components/cardPadrao.vue";
 import SecaoPage from "../components/secaoPage.vue";
 
 export default {
+  name:"SobreProduto",
+  
+  components: {
+    CardPadrao,
+    SecaoPage,
+  },
   data() {
     return {
       selecionados: this.Selecionados,
     };
-  },
-
-  components: {
-    CardPadrao,
-    SecaoPage,
   },
   computed: {
     ...mapGetters(["Selecionados", "Produtos"]),

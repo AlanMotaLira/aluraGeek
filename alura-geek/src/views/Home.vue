@@ -1,27 +1,30 @@
 <template>
-    <section class="page pageHome">
-      <section>
-        <HomeDestaque />
-      </section>
-      <section
-        v-for="grupo in categoriasAtivas()"
-        :key="grupo._id"
-      >
-        <SecaoPage :titulo="grupo.categoria">
-          <template #cards>
-            <CardPadrao
-              v-for="produto in grupo.produtos"
-              :key="produto._id"
-              :nome="produto.nome"
-              :preco="produto.preco"
-              :image="produto.imagem"
-              :idProduto="produto._id"
-              :idCategoria="grupo._id"
-            />
-          </template>
-        </SecaoPage>
-      </section>
+  <section class="page pageHome">
+    <section>
+      <HomeDestaque />
     </section>
+    <section
+      v-for="grupo in categoriasAtivas()"
+      :key="grupo._id"
+    >
+      <SecaoPage
+        :titulo="grupo.categoria"
+        modelo="modelo1"
+      >
+        <template #cards>
+          <CardPadrao
+            v-for="produto in grupo.produtos"
+            :key="produto._id"
+            :nome="produto.nome"
+            :preco="produto.preco"
+            :image="produto.imagem"
+            :idproduto="produto._id"
+            :idcategoria="grupo._id"
+          />
+        </template>
+      </SecaoPage>
+    </section>
+  </section>
 </template>
 
 <script>

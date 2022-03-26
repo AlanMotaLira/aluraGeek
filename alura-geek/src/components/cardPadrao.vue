@@ -5,20 +5,22 @@
         class="card__imagem"
         :src="require(`../../static/card/${image}.jpg`)"
         :alt="nome"
-      />
+      >
     </figure>
     <article class="card__item">
       <h3 class="card__item--titulo">
         {{ nome }}
       </h3>
+
       <p
-        class="card__item--preco">
-          R$ {{ preco.toFixed(2) }}
+        class="card__item--preco"
+      >
+        R$ {{ preco.toFixed(2) }}
       </p>
       <router-link
         :to="{ name: 'sobre-produto' }"
         class="card__item--link"
-        @click="produtoSelecionado({ idCategoria: idCategoria, idProduto: idProduto })"
+        @click="produtoSelecionado({ idCategoria: idcategoria, idProduto: idproduto })"
       >
         Ver produto
       </router-link>
@@ -40,13 +42,12 @@ export default {
       type: Number,
       required: true,
     },
-    idProduto: {
+    "idproduto": {
       type: String,
       required: true,
     },
-    idCategoria: {
-      type: String,
-      required: true,
+    "idcategoria": {
+      type: String
     },
   },
   methods: {

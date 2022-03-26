@@ -20,25 +20,27 @@ const usuarioModule = {
         usuarioDomain
           .criarRegistro(usuario)
           .then((res) => {
-            commit("USUARIO_LOGADO", { usuario: res.usuario });
-            localStorage.setItem("usuario", res.usuario.nome);
+            console.log(res)
+            commit("USUARIO_LOGADO", { usuario: res.nome });
+            localStorage.setItem("usuario", res.nome);
             resolve(res);
           })
-          .catch((erro) => {
-            reject(erro.response.data);
+          .catch((err) => {
+            reject(err.response.data);
           });
       });
     },
 
     registroUsuario({}, usuario) {
+      console.log(usuario)
       return new Promise((resolve, reject) => {
         usuarioDomain
           .cadastroUsuario(usuario)
           .then((res) => {
             resolve(res);
           })
-          .catch((erro) => {
-            console.log(erro.response.data), reject(erro.response.data);
+          .catch((err) => {
+            console.log(err), reject(err.response.data);
           });
       });
     },
