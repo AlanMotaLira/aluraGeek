@@ -1,16 +1,17 @@
 <template>
-  <fieldset class="item">
+  <fieldset class="inputados">
     <input
       :id="chave"
       v-model="valor"
-      class="item__dados"
+      class="inputados__dados"
       :type="tipo"
+      step="any"
       required
       @input="dados($event.target.value)"
     >
     <label
       :for="chave"
-      class="item__Legenda"
+      class="inputados__Legenda"
     >
       {{ rotulo }}
     </label>
@@ -44,8 +45,8 @@ export default {
   },
 };
 </script>
-<style scoped>
-.item {
+<style>
+.inputados {
   display: flex;
   flex-direction:column-reverse;
   background: #ffffff;
@@ -58,16 +59,16 @@ export default {
   width: 100%;
   z-index: 1;
 }
-.item__dados {
+.inputados__dados {
   width: 100%;
 }
-.item__dados:focus,
-.item__dados:before,
-.item__dados:valid {
+.inputados__dados:focus,
+.inputados__dados:before,
+.inputados__dados:valid {
   outline: none;
 }
 
-.item__Legenda {
+.inputados__Legenda {
   color: var(--texto-desfocado);
   font-size: 0.75rem;
   margin: 0.2rem;
@@ -76,8 +77,8 @@ export default {
   position: absolute;
   top:0.2rem;
 }
-.item__dados:focus + .item__Legenda,
-.item__dados:valid + .item__Legenda {
+.inputados__dados:focus + .inputados__Legenda,
+.inputados__dados:valid + .inputados__Legenda {
   color: var(--texto-destaque);
   font-weight: 700;
 }

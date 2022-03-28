@@ -1,23 +1,30 @@
 <template>
   <div>
-    <section class="page cabecalho">
+    <section class="cabecalho">
       <div class="container">
         <h1 aria-label="aluraGeek">
           <LogoAluraGeek alt="logotipo da AluraGeek" />
         </h1>
-        <InputPesquisa
-          class="cabecalho__pesquisa-desktop"
-          placeholder="O que deseja encontrar?"
-        />
+        <div class="cabecalho__pesquisa-desktop">
+          <slot name="pesquisa" />
+        </div>
       </div>
+
       <BotaoModelo
-        v-show="!perfilAtivo"
+        v-if="!atualizarCabecalho"
         modelo="modelo-2"
         rotulo="Login"
         @click="opcaoModal(true)"
       />
-      <p v-show="perfilAtivo"><i class="fa fa-user"></i> {{perfilAtivo}}</p>
-      <button v-show="perfilAtivo" @click="efetuarLogout()" >sair</button>
+      <div v-if="atualizarCabecalho" class="cabecalho__usuario">
+        <p>
+          <i class="fa fa-user" />
+          {{ perfilAtivo }}
+        </p>
+        <button @click="efetuarLogout()">
+          sair
+        </button>
+      </div>
       <button
         class="cabecalho__botao-pesquisa"
         aria-label="pesquisa"
@@ -25,11 +32,9 @@
       >
         <i class="fas fa-magnifying-glass" />
       </button>
-      <InputPesquisa
-        v-if="filtro"
-        class="cabecalho__botao-pesquisa"
-        placeholder="O que deseja encontrar?"
-      />
+      <div v-show="filtro">
+        <slot name="pesquisa" />
+      </div>
     </section>
     <ModalPadrao
       :feedback="feedbackModal"
@@ -43,29 +48,39 @@
 </template>
 <script>
 import BotaoModelo from "./botaoModelo.vue";
-import InputPesquisa from "./inputPesquisa.vue";
 import LogoAluraGeek from "../assets/svg/logoAluraGeek.vue";
-import ModalPadrao from "./modalPadrao.vue"
-import FormularioLogin from './formularioLogin.vue';
+import ModalPadrao from "./modalPadrao.vue";
+import FormularioLogin from "./formularioLogin.vue";
 
 export default {
   components: {
     BotaoModelo,
-    InputPesquisa,
     LogoAluraGeek,
     ModalPadrao,
     FormularioLogin,
   },
+  
   data() {
     return {
-      perfilAtivo:!localStorage.getItem("usuario")?false:localStorage.getItem("usuario").toUpperCase(),
+      perfilAtivo: !localStorage.getItem("usuario")
+        ? false
+        : localStorage.getItem("usuario").toUpperCase(),
       filtro: false,
       feedbackModal: false,
     };
   },
-    methods: {
+  computed: {
+    atualizarCabecalho() {
+      if (this.perfilAtivo) {
+        return true;
+      } else {
+        return false;
+      }
+    },
+  },
+  methods: {
     opcaoModal(op) {
-      this.feedbackModal = op
+      this.feedbackModal = op;
     },
     efetuarLogout() {
       this.$store.commit("USUARIO_DESLOGADO");
@@ -79,7 +94,7 @@ export default {
 <style scoped>
 .cabecalho {
   display: flex;
-  flex-wrap:wrap;
+  flex-wrap: wrap;
   align-items: center;
   flex-direction: row;
   height: 72px;
@@ -89,8 +104,22 @@ export default {
   cursor: pointer;
   margin: 0 1rem;
 }
-.cabecalho__pesquisa-desktop{
+.cabecalho__pesquisa-desktop {
   display: none;
+}
+.cabecalho__usuario{
+  display: flex;
+  background-color: var(--pagina-claro);
+  border-radius: 1rem;
+  padding: 0.5rem;
+}
+.cabecalho__usuario button{
+  color:var(--botao-padrao);
+  cursor: pointer;
+  margin: 0 1rem;;
+}
+.cabecalho__usuario button:hover{
+  color:var(--botao-padrao-80);
 }
 .container {
   display: flex;
@@ -98,13 +127,13 @@ export default {
 }
 
 @media screen and (min-width: 768px) {
-  .cabecalho{
+  .cabecalho {
     justify-content: space-between;
   }
   .cabecalho__botao-pesquisa {
     display: none;
   }
-  .cabecalho__pesquisa-desktop{
+  .cabecalho__pesquisa-desktop {
     display: initial;
   }
 }

@@ -4,7 +4,7 @@ const produtoDomain = new ProdutoDomain();
 
 const produtosModule = {
   state: {
-    todosProdutos:[]
+    todosProdutos:[],
   },
   mutations: {
     PRODUTOS_CADASTRADOS(state, { produtos }) {

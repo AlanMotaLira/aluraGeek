@@ -3,14 +3,15 @@
     <div class="pesquisa">
       <input
         id="filtro"
+        v-model="dadosFiltro"
         class="pesquisa__input"
         type="search"
         :placeholder="placeholder"
+        @input="subirDados($event.target.value)"
       >
       <label for="filtro">
         <i
           class="fas fa-magnifying-glass"
-          aria-label="lupa de pesquisa"
         />
       </label>
     </div>
@@ -24,6 +25,16 @@ export default {
       type: String,
     },
   },
+  data(){
+    return{
+      dadosFiltro:""
+    }
+  },
+  methods: {
+    subirDados(input) {
+      this.$emit("pesquisa", input);
+    },
+  },
 };
 </script>
 <style scoped>
@@ -33,9 +44,10 @@ export default {
   background-color: var(--pagina-claro);
   border: none;
   border-radius: 20px;
-  justify-content: space-between;
   font-size: 0.75rem;
   font-weight: 400;
+  justify-content: space-between;
+  margin: 0.5rem;
   height: auto;
   padding: 8px 16px;
   vertical-align: middle;
@@ -62,6 +74,7 @@ fieldset {
 
 @media screen and (min-width: 768px) {
   .pesquisa {
+    margin: 0;
     width: 272px;
   }
 

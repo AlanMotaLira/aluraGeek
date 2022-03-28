@@ -20,7 +20,6 @@ const usuarioModule = {
         usuarioDomain
           .criarRegistro(usuario)
           .then((res) => {
-            console.log(res)
             commit("USUARIO_LOGADO", { usuario: res.nome });
             localStorage.setItem("usuario", res.nome);
             resolve(res);
@@ -32,7 +31,6 @@ const usuarioModule = {
     },
 
     registroUsuario({}, usuario) {
-      console.log(usuario)
       return new Promise((resolve, reject) => {
         usuarioDomain
           .cadastroUsuario(usuario)

@@ -1,11 +1,19 @@
 <template>
   <section class="card">
-    <figure>
+    <figure class="card__figura">
       <img
-        class="card__imagem"
+        class="card__figura--imagem"
         :src="require(`../../static/card/${image}.jpg`)"
         :alt="nome"
       >
+      <div v-if="tipo==='tipo2'" class="card__figura--opcao">
+        <button aria-label="editar produto">
+          <i class="fa-solid fa-pencil" />
+        </button>
+        <button aria-label="remover produto">
+        <i class="fa-solid fa-trash-can" />
+        </button>
+      </div>
     </figure>
     <article class="card__item">
       <h3 class="card__item--titulo">
@@ -19,11 +27,18 @@
       </p>
       <router-link
         :to="{ name: 'sobre-produto' }"
+        v-if="tipo==='tipo1'"
         class="card__item--link"
         @click="produtoSelecionado({ idCategoria: idcategoria, idProduto: idproduto })"
       >
         Ver produto
       </router-link>
+      <p
+        v-if="tipo==='tipo2'"
+        class="card__item--titulo"
+      >
+        {{ idproduto }}
+      </p>
     </article>
   </section>
 </template>
@@ -35,6 +50,10 @@ export default {
       required: true,
     },
     nome: {
+      type: String,
+      required: true,
+    },
+    tipo: {
       type: String,
       required: true,
     },
@@ -68,9 +87,26 @@ export default {
   overflow: hidden;
   width: 156px;
 }
-.card__imagem {
+.card__figura{
+  position: relative;
+}
+.card__figura--imagem {
   height: 174px;
   width: 100%;
+}
+.card__figura--opcao{
+  color:var(--botao-padrao-20);
+  font-size: 1.125rem;
+  position: absolute;
+  right:1rem;
+  top:1rem;
+}
+.card__figura--opcao button{
+  cursor:pointer;
+  margin: 0.5rem;
+}
+.card__figura--opcao button:hover{
+  color:var(--botao-padrao);
 }
 .card__item {
   display: flex;

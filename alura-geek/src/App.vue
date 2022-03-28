@@ -1,11 +1,6 @@
 <template>
   <div>
-    <header>
-      <CabecalhoPrincipal />
-    </header>
-    <main class="main">
-      <router-view />
-    </main>
+    <router-view />
     <footer>
       <RodapePage />
       <section class="footer_fim">
@@ -16,21 +11,20 @@
   </div>
 </template>
 <script>
+import { mapGetters } from "vuex";
 import "./assets/styles/reset.css";
 import "./assets/styles/styles-global.css";
-import CabecalhoPrincipal from "./components/cabecalhoPrincipal.vue";
 import RodapePage from "./components/rodapePage.vue";
 
 export default {
   components: {
-    CabecalhoPrincipal,
     RodapePage,
-  },
+  }
 };
 </script>
 
-<style scoped>
-header{
+<style>
+header {
   background: var(--pagina-padrao);
 }
 main {

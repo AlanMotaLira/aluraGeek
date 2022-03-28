@@ -31,12 +31,14 @@ export default {
   width: 119px;
 }
 .modelo-1,
-.modelo-3 {
+.modelo-3,
+.modelo-4 {
   background-color: var(--botao-padrao);
   color: var(--texto-claro);
 }
 .modelo-1:hover,
-.modelo-3:hover {
+.modelo-3:hover,
+.modelo-4:hover {
   background-color: var(--botao-padrao-80);
 }
 .modelo-2 {
@@ -45,6 +47,9 @@ export default {
 }
 .modelo-2:hover {
   background-color: var(--botao-padrao-20);
+}
+.modelo-4{
+  width: 100%;
 }
 
 @media screen and (min-width: 1136px) {
@@ -57,5 +62,8 @@ export default {
   .modelo-3 {
     width: 100%;
   }
+  .modelo-4{
+  width: 100%;
+}
 }
 </style>

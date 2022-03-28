@@ -29,7 +29,10 @@
         {{ selecionavel }}
       </a>
     </nav>
-    <p v-show="validacao" class="login__alert">
+    <p
+      v-show="validacao"
+      class="login__alert"
+    >
       <i class="fa-solid fa-circle-exclamation" />
       {{ validacao }}
     </p>

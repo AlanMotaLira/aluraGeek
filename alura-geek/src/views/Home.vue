@@ -1,44 +1,62 @@
 <template>
-  <section class="page pageHome">
-    <section>
-      <HomeDestaque />
-    </section>
-    <section
-      v-for="grupo in categoriasAtivas()"
-      :key="grupo._id"
-    >
-      <SecaoPage
-        :titulo="grupo.categoria"
-        modelo="modelo1"
-      >
-        <template #cards>
-          <CardPadrao
-            v-for="produto in grupo.produtos"
-            :key="produto._id"
-            :nome="produto.nome"
-            :preco="produto.preco"
-            :image="produto.imagem"
-            :idproduto="produto._id"
-            :idcategoria="grupo._id"
-          />
+  <div>
+    <header class="page">
+      <CabecalhoPrincipal>
+        <template #pesquisa>
+          <InputPesquisa placeholder="O que deseja encontrar?" @pesquisa="pesquisa = $event" />
         </template>
-      </SecaoPage>
-    </section>
-  </section>
+      </CabecalhoPrincipal>
+    </header>
+    <main>
+      <section>
+        <HomeDestaque />
+      </section>
+      <section v-for="grupo in categoriasAtivas()" v-show="!pesquisa" :key="grupo._id" class="page">
+        <SecaoPage :titulo="grupo.categoria" modelo="modelo1">
+          <template #cards>
+            <CardPadrao
+              v-for="produto in grupo.produtos"
+              :key="produto._id"
+              :nome="produto.nome"
+              tipo="tipo1"
+              :preco="produto.preco"
+              :image="produto.imagem"
+              :idproduto="produto._id"
+              :idcategoria="grupo._id"
+            />
+          </template>
+        </SecaoPage>
+      </section>
+      <section v-show="pesquisa">
+        <PesquisaPage :pesquisado="pesquisa"/>
+      </section>
+    </main>
+  </div>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
-import HomeDestaque from "../components/homeDestaque.vue";
+import CabecalhoPrincipal from "../components/cabecalhoPrincipal.vue";
 import CardPadrao from "../components/cardPadrao.vue";
+import HomeDestaque from "../components/homeDestaque.vue";
+import InputPesquisa from "../components/inputPesquisa.vue";
+import PesquisaPage from "../components/pesquisaPage.vue";
 import SecaoPage from "../components/secaoPage.vue";
 
 export default {
   name: "HomePage",
   components: {
+    CabecalhoPrincipal,
     CardPadrao,
+    InputPesquisa,
     HomeDestaque,
+    PesquisaPage,
     SecaoPage,
+  },
+  data() {
+    return {
+      pesquisa: "",
+    };
   },
   computed: {
     ...mapGetters(["Categorias"]),

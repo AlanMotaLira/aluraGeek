@@ -1,67 +1,73 @@
 <template>
-  <section class="page">
-    <section class="produto">
-      <figure>
-        <img
-          class="produto__imagem"
-          :src="require(`../../static/card/${produto[0].imagem}.jpg`)"
-          :alt="produto[0].nome"
-        >
-      </figure>
+  <div>
+    <header class="page">
+      <CabecalhoPrincipal />
+    </header>
+    <main>
+      <section class="page">
+        <section class="produto">
+          <figure>
+            <img
+              class="produto__imagem"
+              :src="require(`../../static/card/${produto[0].imagem}.jpg`)"
+              :alt="produto[0].nome"
+            >
+          </figure>
 
-      <article class="produto__dados">
-        <h2
-          class="produto__dados--titulo"
+          <article class="produto__dados">
+            <h2 class="produto__dados--titulo">
+              {{ produto[0].nome }}
+            </h2>
+            <p
+              class="produto__dados--preco"
+            >
+              R$ {{ produto[0].preco.toFixed(2) }}
+            </p>
+            <p class="produto__dados--descricao">
+              {{ produto[0].descricao }}
+            </p>
+          </article>
+        </section>
+        <router-link
+          :to="{ name: 'home' }"
+          class="produto__link"
         >
-          {{ produto[0].nome }}
-        </h2>
-        <p
-          class="produto__dados--preco"
+          Voltar a pagina incial
+          <i class="fa fa-house-chimney" />
+        </router-link>
+        <SecaoPage
+          titulo="Produtos similares"
+          modelo="modelo1"
         >
-          R$ {{ produto[0].preco.toFixed(2) }}
-        </p>
-        <p
-          class="produto__dados--descricao"
-        >
-          {{ produto[0].descricao }}
-        </p>
-      </article>
-    </section>
-    <router-link
-      :to="{ name: 'home' }"
-      class="produto__link"
-    >
-      Voltar a pagina incial
-      <i class="fa fa-house-chimney" />
-    </router-link>
-    <SecaoPage
-      titulo="Produtos similares"
-      modelo="modelo1"
-    >
-      <template #cards>
-        <CardPadrao
-          v-for="produtoSelecionado in produtos"
-          :key="produtoSelecionado._id"
-          :nome="produtoSelecionado.nome"
-          :preco="produtoSelecionado.preco"
-          :image="produtoSelecionado.imagem"
-          :idproduto="produtoSelecionado._id"
-          :idcategoria="this.Selecionados.idCategoria"
-        />
-      </template>
-    </SecaoPage>
-  </section>
+          <template #cards>
+            <CardPadrao
+              v-for="produtoSelecionado in produtos"
+              :key="produtoSelecionado._id"
+              :nome="produtoSelecionado.nome"
+              :preco="produtoSelecionado.preco"
+              tipo="tipo1"
+              :image="produtoSelecionado.imagem"
+              :idproduto="produtoSelecionado._id"
+              :idcategoria="this.Selecionados.idCategoria"
+            />
+          </template>
+        </SecaoPage>
+      </section>
+    </main>
+  </div>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
+import CabecalhoPrincipal from "../components/cabecalhoPrincipal.vue";
 import CardPadrao from "../components/cardPadrao.vue";
 import SecaoPage from "../components/secaoPage.vue";
 
 export default {
-  name:"SobreProduto",
-  
+  name: "SobreProduto",
+
   components: {
+    CabecalhoPrincipal,
     CardPadrao,
     SecaoPage,
   },
@@ -85,7 +91,6 @@ export default {
           return produto;
         }
       });
-      
     },
   },
 };
@@ -124,8 +129,8 @@ export default {
   position: relative;
   height: 250px;
   left: -1rem;
-  object-fit:cover;
-  top:-1rem;
+  object-fit: cover;
+  top: -1rem;
   width: 100vw;
 }
 .produto__link {
@@ -133,10 +138,10 @@ export default {
   color: var(--texto-destaque);
   cursor: pointer;
   font-size: 1rem;
-  margin:1rem;
-  transition: 500ms all
+  margin: 1rem;
+  transition: 500ms all;
 }
-.produto__link:hover{
+.produto__link:hover {
   color: var(--botao-padrao-80);
 }
 
@@ -150,14 +155,14 @@ export default {
     height: 157px;
     left: 0;
     margin: 1rem;
-    top:0;
+    top: 0;
     width: 254px;
   }
 }
 
 @media screen and (min-width: 1136px) {
-  .produto__imagem {  
-    height:403px;
+  .produto__imagem {
+    height: 403px;
     width: 560px;
   }
 }

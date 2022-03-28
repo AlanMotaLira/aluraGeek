@@ -12,7 +12,17 @@
         Ver tudo
         <i class="fa fa-caret-right" />
       </a>
-      <div class="sort" v-if="modelo==='modelo2'">
+      <div
+        v-if="modelo==='modelo2'"
+        class="sort"
+      >
+        <BotaoModelo
+          v-if="adicionar"
+          modelo="modelo-1"
+          rotulo="Adicionar produto"
+          class="sort__adicionar"
+          @click="adicionarProduto()"
+        />
         <button
           type="button"
           class="sort__colapsar"
@@ -20,7 +30,10 @@
         >
           <i class="fa-solid fa-filter" />
         </button>
-        <ul class="sort_conteudo" v-show="colapsar">
+        <ul
+          v-show="colapsar"
+          class="sort_conteudo"
+        >
           <li><i class="fa fa-arrow-up-a-z" /> Ordem crescente</li>
           <li><i class="fa fa-arrow-down-z-a" /> Ordem decrescente</li>
           <li><i class="fa fa-sort-up" /> Maior valor ao menor</li>
@@ -43,8 +56,13 @@
   </section>
 </template>
 <script>
+import BotaoModelo from "./botaoModelo.vue"
 export default {
   props: {
+    adicionar: {
+      type: Boolean,
+      default: false,
+    },
     titulo: {
       type: String,
       required: true,
@@ -54,6 +72,9 @@ export default {
       required: true,
     },
   },
+  components: {
+    BotaoModelo,
+  },
   data(){
     return{
       colapsar:false
@@ -62,7 +83,10 @@ export default {
   methods: {
   ativarColapso(){
     this.colapsar = !this.colapsar
-    }
+    },
+  adicionarProduto(){
+    this.$router.push({ name: "novo-produto" });
+  }
   },
 };
 </script>
@@ -70,7 +94,7 @@ export default {
 .container {
   display: flex;
   font-weight: 700;
-  margin: 4rem 0 1rem 0;
+  padding: 2rem 0 1rem 0;
   justify-content: space-between;
 }
 .secao__card--grid,
@@ -102,6 +126,9 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+}
+.sort__adicionar{
+  align-self:flex-end;
 }
 .sort__colapsar {
   align-self:flex-end;

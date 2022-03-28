@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Home from "../views/Home.vue";
+import AdicionarProduto from "../views/AdicionarProduto.vue"
 import NaoRegistrado from "../views/NaoRegistrado.vue";
 import PerfilUSuario from "../views/PerfilUsuario.vue";
 import SobreProduto from "../views/SobreProduto.vue";
@@ -32,6 +33,11 @@ const routes = [
     path: "/perfil",
     name: "perfil",
     component: PerfilUSuario,
+  },
+  {
+    path: "/novoproduto",
+    name: "novo-produto",
+    component: AdicionarProduto,
   },
 ];
 

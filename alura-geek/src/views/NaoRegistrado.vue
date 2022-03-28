@@ -1,21 +1,30 @@
 <template>
-  <section class="page pageHome">
-    <h2 class="feedback">
-      Retornar para a
-      <router-link
-        :to="{ name: 'home' }"
-      >
-        Página Inicial
-      </router-link>
-    </h2>
-    <FormularioLogin />
-  </section>
+  <div>
+    <header class="page">
+      <CabecalhoPrincipal />
+    </header>
+    <main>
+      <section class="page pageHome">
+        <h2 class="feedback">
+          Retornar para a
+          <router-link
+            :to="{ name: 'home' }"
+          >
+            Página Inicial
+          </router-link>
+        </h2>
+        <FormularioLogin />
+      </section>
+    </main>
+  </div>
 </template>
 
 <script>
+import CabecalhoPrincipal from "../components/cabecalhoPrincipal.vue";
 import FormularioLogin from "../components/formularioLogin.vue";
 export default {
   components: {
+    CabecalhoPrincipal,
     FormularioLogin,
   },
 };
