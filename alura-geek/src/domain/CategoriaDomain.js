@@ -6,7 +6,8 @@ class CategoriaDomain extends Domain {
     super("/categoria");
     this.id = "/id";
   }
-  cadastroPorId() {
+
+  cadastroPorGrupo() {
     return new Promise((resolve) => {
       http
         .get(this.rota + this.id)

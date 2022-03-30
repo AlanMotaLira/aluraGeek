@@ -6,21 +6,23 @@ export default class ProdutosControllers {
       res.status(200).json(produtos);
     });
   };
-  static inserirProduto = (req, res) => {
+  static inserirProduto = async (req, res) => {
     const produto = req.body;
     const { id } = req.params;
-
-    Categoria.update(
-      { _id: id },
-      { $push: { produtos: produto } },
-      (err, categoria) => {
-        if (err) {
-          res.status(500).json(err.message);
-        } else {
-          res.status(200).json(categoria);
+    await Categoria.findOne({_id:id}).select({grupo:1}).exec((err,test)=>{
+      produto['grupo']= test.grupo
+      Categoria.update(
+        { _id: id },
+        { $push: { produtos: produto } },
+        (err, categoria) => {
+          if (err) {
+            res.status(500).json(err.message);
+          } else {
+            res.status(200).json(categoria);
+          }
         }
-      }
-    );
+      )
+    })
   };
 
   static editarProduto = (req, res) => {

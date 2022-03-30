@@ -8,10 +8,13 @@
     <p class="destaque__subtitulo">
       Produtos selecionados com 33% de desconto
     </p>
-    <BotaoModelo
-      modelo="modelo-1"
-      rotulo="Ver Consoles"
-    />
+    <a href="#list-C1">
+      <BotaoModelo
+        modelo="modelo-1"
+        rotulo="Ver Consoles"
+        to="#list-C1"
+      />
+    </a>
   </article>
 </template>
 <script>

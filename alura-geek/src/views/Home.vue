@@ -8,10 +8,10 @@
       </CabecalhoPrincipal>
     </header>
     <main>
-      <section>
+      <section v-show="!pesquisa">
         <HomeDestaque />
       </section>
-      <section v-for="grupo in categoriasAtivas()" v-show="!pesquisa" :key="grupo._id" class="page">
+      <section v-for="grupo in categoriasAtivas()" v-show="!pesquisa" :id="'list-'+grupo.grupo" :key="grupo._id" class="page">
         <SecaoPage :titulo="grupo.categoria" modelo="modelo1">
           <template #cards>
             <CardPadrao
