@@ -1,2 +1,2 @@
 # aluraGeek
-##Projeto challenges desenvolvido com Vuejs
+## Projeto challenges desenvolvido com Vuejs
